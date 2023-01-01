@@ -1,0 +1,2126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#77BEF5"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".ScrollingActivity"
+    tools:showIn="@layout/activity_scrolling">
+
+    <!-- Main -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18dp"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:text="(0-זה בכלל לא, 1-זה קצת, 5-הכי הרבה)"/>
+
+        <View
+        android:layout_width="match_parent"
+        android:layout_height="6dp"
+        android:background="#0367B4" />
+
+        <!-- Start categorize 1 -->
+        <!-- Start Line 1 -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="horizontal"
+            tools:ignore="ExtraText">
+
+            <TextView
+                android:id="@+id/check"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="6dp"
+                android:textStyle="bold"
+                android:textColor="#0367B4"
+                android:textSize="30dp"
+                android:gravity="center"
+                android:fontFamily="@font/ganclm_boldwebfont"
+                android:text="חרדה"/>
+        </LinearLayout>
+        <!-- End line 1 -->
+
+        <!-- Start line 2 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            tools:ignore="ExtraText">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="6dp"
+                android:textSize="22dp"
+                android:text="בוקר:"/>
+
+            <Spinner
+                android:id="@+id/spinner1_1"
+                style="@style/spnr"
+                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="?android:attr/listDivider" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="2dp"
+                android:textSize="22dp"
+                android:text="צהריים:"/>
+
+            <Spinner
+                android:id="@+id/spinner1_2"
+                style="@style/Widget.AppCompat.DropDownItem.Spinner"
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="?android:attr/listDivider" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="2dp"
+                android:textSize="22dp"
+                android:text="ערב:"/>
+
+            <Spinner
+                android:id="@+id/spinner1_3"
+                style="@style/Widget.AppCompat.DropDownItem.Spinner"
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="6dp"
+            android:background="#0367B4" />
+        <!-- End line 2 -->
+        <!-- End categorize 1 -->
+        <!-- Start categorize  2 -->
+        <!-- Start Line 1 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="horizontal"
+            tools:ignore="ExtraText">
+
+            <TextView
+                android:id="@+id/check2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="6dp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:fontFamily="@font/ganclm_boldwebfont"
+                android:textColor="#0367B4"
+                android:textSize="30dp"
+                android:text="דיכאון"/>
+        </LinearLayout>
+        <!-- End line 1 -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            tools:ignore="ExtraText">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="6dp"
+                android:textSize="22dp"
+                android:text="בוקר:"/>
+
+            <Spinner
+                android:id="@+id/spinner2_1"
+                style="@style/spnr"
+                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="?android:attr/listDivider" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="2dp"
+                android:textSize="22dp"
+                android:text="צהריים:"/>
+
+            <Spinner
+                android:id="@+id/spinner2_2"
+                style="@style/Widget.AppCompat.DropDownItem.Spinner"
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="?android:attr/listDivider" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="2dp"
+                android:textSize="22dp"
+                android:text="ערב:"/>
+
+            <Spinner
+                android:id="@+id/spinner2_3"
+                style="@style/Widget.AppCompat.DropDownItem.Spinner"
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="6dp"
+            android:background="#0367B4" />
+        <!-- End line 2 -->
+        <!-- End categorize 2 -->
+
+        <!-- Start categorize 3 -->
+        <!-- Start Line 1 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="horizontal"
+            tools:ignore="ExtraText">
+
+            <TextView
+                android:id="@+id/check3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="6dp"
+                android:textStyle="bold"
+                android:textColor="#0367B4"
+                android:textSize="30dp"
+                android:fontFamily="@font/ganclm_boldwebfont"
+                android:gravity="center"
+                android:text="מאניה"/>
+        </LinearLayout>
+        <!-- End line 1 -->
+
+        <!-- Start line 2 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            tools:ignore="ExtraText">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="6dp"
+                android:textSize="22dp"
+                android:text="בוקר:"/>
+
+            <Spinner
+                android:id="@+id/spinner3_1"
+                style="@style/spnr"
+                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="?android:attr/listDivider" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="2dp"
+                android:textSize="22dp"
+                android:text="צהריים:"/>
+
+            <Spinner
+                android:id="@+id/spinner3_2"
+                style="@style/Widget.AppCompat.DropDownItem.Spinner"
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="?android:attr/listDivider" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="2dp"
+                android:textSize="22dp"
+                android:text="ערב:"/>
+
+            <Spinner
+                android:id="@+id/spinner3_3"
+                style="@style/Widget.AppCompat.DropDownItem.Spinner"
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="6dp"
+            android:background="#0367B4" />
+        <!-- End line 2 -->
+        <!-- End categorize 3 -->
+
+        <!-- Start categorize 4 -->
+        <!-- Start Line 1 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="horizontal"
+            tools:ignore="ExtraText">
+
+            <TextView
+                android:id="@+id/check4_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="6dp"
+                android:textStyle="bold"
+                android:textColor="#0367B4"
+                android:textSize="30dp"
+                android:gravity="center"
+                android:fontFamily="@font/ganclm_boldwebfont"
+                android:text="מחשבות אובדניות"/>
+        </LinearLayout>
+        <!-- End line 1 -->
+
+        <!-- Start line 2 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            tools:ignore="ExtraText">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="6dp"
+                android:textSize="22dp"
+                android:text="בוקר:"/>
+
+            <Spinner
+                android:id="@+id/spinner4_1"
+                style="@style/spnr"
+                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="?android:attr/listDivider" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="2dp"
+                android:textSize="22dp"
+                android:text="צהריים:"/>
+
+            <Spinner
+                android:id="@+id/spinner4_2"
+                style="@style/Widget.AppCompat.DropDownItem.Spinner"
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="?android:attr/listDivider" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="2dp"
+                android:textSize="22dp"
+                android:text="ערב:"/>
+
+            <Spinner
+                android:id="@+id/spinner4_3"
+                style="@style/Widget.AppCompat.DropDownItem.Spinner"
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="6dp"
+            android:background="#0367B4" />
+        <!-- End line 2 -->
+        <!-- End categorize 4 -->
+
+        <!-- Start categorize 5 -->
+        <!-- Start Line 1 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="horizontal"
+            tools:ignore="ExtraText">
+
+            <TextView
+                android:id="@+id/check5_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="6dp"
+                android:textStyle="bold"
+                android:textColor="#0367B4"
+                android:textSize="30dp"
+                android:gravity="center"
+                android:fontFamily="@font/ganclm_boldwebfont"
+                android:text="דחפים לפגיעה עצמית"/>
+        </LinearLayout>
+        <!-- End line 1 -->
+
+        <!-- Start line 2 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            tools:ignore="ExtraText">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="6dp"
+                android:textSize="22dp"
+                android:text="בוקר:"/>
+
+            <Spinner
+                android:id="@+id/spinner5_1"
+                style="@style/spnr"
+                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="?android:attr/listDivider" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="2dp"
+                android:textSize="22dp"
+                android:text="צהריים:"/>
+
+            <Spinner
+                android:id="@+id/spinner5_2"
+                style="@style/Widget.AppCompat.DropDownItem.Spinner"
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="?android:attr/listDivider" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="2dp"
+                android:textSize="22dp"
+                android:text="ערב:"/>
+
+            <Spinner
+                android:id="@+id/spinner5_3"
+                style="@style/Widget.AppCompat.DropDownItem.Spinner"
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="6dp"
+            android:background="#0367B4" />
+        <!-- End line 2 -->
+        <!-- End categorize 5 -->
+
+
+        <!-- Start categorize 6 -->
+        <!-- Start Line 1 -->
+        <TextView
+                android:id="@+id/check6_1"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginHorizontal="0dp"
+                android:textStyle="bold"
+                android:textColor="#0367B4"
+                android:textSize="30dp"
+                android:gravity="center"
+            android:fontFamily="@font/ganclm_boldwebfont"
+                android:text="ניתוק"/>
+        <TextView
+            android:id="@+id/check6_2"
+            android:layout_width="match_parent"
+            android:layout_height="24dp"
+            android:layout_marginHorizontal="0dp"
+            android:textStyle="normal"
+            android:textSize="18dp"
+            android:gravity="center"
+            android:text="הסולם נע מ-0% (אף פעם) עד 100% (כל הזמן)"/>
+
+        <!-- End line 1 -->
+
+        <!-- Start line 2 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            tools:ignore="ExtraText">
+            <TextView
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="6dp"
+                android:textSize="22dp"
+                android:text="בוקר:"/>
+
+            <SeekBar
+                android:id="@+id/sb6_1"
+                android:layout_width="230dp"
+                android:layout_height="22dp"
+                android:max="100"
+                android:progress="50"
+                android:thumb="@raw/lg"
+                android:layout_gravity="bottom"
+                android:progressDrawable="@drawable/custom_progress"/>
+            <TextView
+                android:id="@+id/prcnt6_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="2dp"
+                android:textSize="22dp"
+                android:text="50%"/>
+        </LinearLayout>
+        <!-- End line 2 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        tools:ignore="ExtraText">
+
+            <TextView
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="6dp"
+                android:textSize="22dp"
+                android:text="צהריים:"/>
+
+        <SeekBar
+            android:id="@+id/sb6_2"
+            android:layout_width="230dp"
+            android:layout_height="22dp"
+            android:max="100"
+            android:progress="50"
+            android:thumb="@raw/lg"
+            android:layout_gravity="bottom"
+            android:progressDrawable="@drawable/custom_progress"/>
+        <TextView
+            android:id="@+id/prcnt6_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="2dp"
+            android:textSize="22dp"
+            android:text="40%"/>
+    </LinearLayout>
+        <!-- End line 3 -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            tools:ignore="ExtraText">
+
+        <TextView
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="6dp"
+                android:textSize="22dp"
+                android:text="ערב:"/>
+
+        <SeekBar
+            android:id="@+id/sb6_3"
+            android:layout_width="230dp"
+            android:layout_height="22dp"
+            android:max="100"
+            android:progress="50"
+            android:thumb="@raw/lg"
+            android:layout_gravity="bottom"
+            android:progressDrawable="@drawable/custom_progress"/>
+        <TextView
+            android:id="@+id/prcnt6_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="2dp"
+            android:textSize="22dp"
+            android:text="60%"/>
+
+    </LinearLayout>
+    <!-- End line 4 -->
+    <!-- End categorize 6 -->
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="6dp"
+        android:layout_marginTop="6dp"
+        android:background="#0367B4" />
+
+        <!-- Start categorize 7 -->
+        <!-- Start Line 1 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="horizontal"
+            tools:ignore="ExtraText">
+
+            <TextView
+                android:id="@+id/check7_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="6dp"
+                android:textStyle="bold"
+                android:textColor="#0367B4"
+                android:textSize="30dp"
+                android:gravity="center"
+                android:fontFamily="@font/ganclm_boldwebfont"
+                android:text="פגיעות"/>
+        </LinearLayout>
+        <!-- End line 1 -->
+
+        <!-- Start line 2 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="horizontal"
+            tools:ignore="ExtraText">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="6dp"
+            android:textSize="24dp"
+            android:textStyle="bold"
+            android:fontFamily="@font/ganclm_boldwebfont"
+            android:text="אוכל:"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="6dp"
+            android:textSize="22dp"
+            android:text="היום אכלתי בהתאם למטרות שלי: "/>
+    </LinearLayout>
+        <!-- End line 2 -->
+
+        <!-- Start line 3 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            tools:ignore="ExtraText">
+
+            <CheckBox
+                android:id="@+id/cb7_1y"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:text="כן" />
+            <CheckBox
+                android:id="@+id/cb7_1n"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="לא" />
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="6dp"
+                android:background="?android:attr/listDivider" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:textSize="22dp"
+                android:text="מספר ארוחות: "/>
+
+            <Spinner
+                android:id="@+id/spinner7_1"
+                style="@style/Widget.AppCompat.DropDownItem.Spinner"
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+        </LinearLayout>
+        <!-- End line 3 -->
+
+        <!-- Start line 4 -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="?android:attr/listDivider" />
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id = "@+id/rmrk7_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#4BABF4"
+                android:textSize="18dp"
+                android:hint="הערה לגבי האוכל:" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <!-- End line 4 -->
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="6dp"
+            android:background="#0367B4" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        tools:ignore="ExtraText">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="6dp"
+            android:textSize="24dp"
+            android:textStyle="bold"
+            android:fontFamily="@font/ganclm_boldwebfont"
+            android:text="שינה:"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="6dp"
+            android:textSize="22dp"
+            android:text="מספר השעות שישנתי: "/>
+
+        <Spinner
+            android:id="@+id/spinner7_2"
+            style="@style/spnr"
+            android:layout_width = "60dp"
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+    </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="?android:attr/listDivider" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id = "@+id/rmrk7_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#4BABF4"
+                android:textSize="18dp"
+                android:hint="הערה לגבי השינה:" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="6dp"
+            android:background="#0367B4" />
+        <!-- End line 5 -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        tools:ignore="ExtraText">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="6dp"
+            android:textSize="24dp"
+            android:textStyle="bold"
+            android:fontFamily="@font/ganclm_boldwebfont"
+            android:text="פעילות גופנית:"/>
+        <CheckBox
+            android:id="@+id/cb7_2y"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:text="כן" />
+        <CheckBox
+            android:id="@+id/cb7_2n"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="לא" />
+    </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="?android:attr/listDivider" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id = "@+id/rmrk7_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#4BABF4"
+                android:textSize="18dp"
+                android:hint="הערה לגבי הפעילות הגופנית:" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="6dp"
+            android:background="#0367B4" />
+        <!-- End line 6 -->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="6dp"
+                android:textSize="24dp"
+                android:textStyle="bold"
+                android:fontFamily="@font/ganclm_boldwebfont"
+                android:text="תרופות:"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="6dp"
+                android:textSize="22dp"
+                android:text="טיפלתי במחלות ולקחתי את התרופות:"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="left"
+            tools:ignore="ExtraText">
+            <CheckBox
+                android:id="@+id/cb7_7y"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:text="כן" />
+            <CheckBox
+                android:id="@+id/cb7_7n"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="לא  " />
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="?android:attr/listDivider" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id = "@+id/rmrk7_7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#4BABF4"
+                android:textSize="18dp"
+                android:hint="הערה לגבי התרופות:" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="6dp"
+            android:background="#0367B4" />
+        <!-- End line 7 -->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="6dp"
+            android:textSize="24dp"
+            android:textStyle="bold"
+            android:fontFamily="@font/ganclm_boldwebfont"
+            android:text="אלכוהול:"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="6dp"
+            android:textSize="22dp"
+            android:text="הצלחתי להימנע מאלכוהול וסמים:"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="left"
+            tools:ignore="ExtraText">
+            <CheckBox
+                android:id="@+id/cb7_8y"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:text="כן" />
+            <CheckBox
+                android:id="@+id/cb7_8n"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="לא  " />
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="?android:attr/listDivider" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id = "@+id/rmrk7_8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#4BABF4"
+                android:textSize="18dp"
+                android:hint="הערה לגבי אלכוהול וסמים:" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="6dp"
+            android:background="#0367B4" />
+        <!-- End line 8 -->
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id = "@+id/rmrk7_9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#4BABF4"
+                android:textSize="18dp"
+                android:hint="היום הרגשתי מסוגל כאשר:" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="6dp"
+            android:background="#0367B4" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id = "@+id/rmrk7_10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#4BABF4"
+                android:textSize="18dp"
+                android:hint="אחת המטרות ארוכות הטווח שלי היא:" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="6dp"
+            android:background="#0367B4" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id = "@+id/rmrk7_11"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#4BABF4"
+                android:textSize="18dp"
+                android:hint="היום התקדמתי צעד אחד לקראת המטרה הזו:" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="6dp"
+            android:background="#0367B4" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id = "@+id/rmrk7_12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#4BABF4"
+                android:textSize="18dp"
+                android:hint="גורמי פגיעות נוספים:" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="6dp"
+            android:background="#0367B4" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            android:layout_marginHorizontal="0dp"
+            android:textStyle="bold"
+            android:textColor="#0367B4"
+            android:textSize="22dp"
+            android:gravity="center"
+            android:fontFamily="@font/ganclm_boldwebfont"
+            android:text="דברים אחרים שהחלטתי לעבוד איתם"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="?android:attr/listDivider" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id = "@+id/rmrk7_13"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#4BABF4"
+                android:textSize="18dp"
+                android:hint="כותרת:" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="?android:attr/listDivider" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id = "@+id/rmrk7_14"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#4BABF4"
+                android:textSize="18dp"
+                android:hint="הערות:" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="6dp"
+            android:background="#0367B4" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginHorizontal="0dp"
+            android:textStyle="bold"
+            android:textColor="#0367B4"
+            android:textSize="22dp"
+            android:gravity="center"
+            android:fontFamily="@font/ganclm_boldwebfont"
+            android:text="רגשות שהבחנתי בהם היום:"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="6dp"
+            android:textSize="20dp"
+            android:text="לזהות את הרגשות שחשת היום, להעריך את העוצמה שלהן ולהזין את הרמה המקסימלית."/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="6dp"
+            android:layout_gravity="center"
+            android:textSize="18dp"
+            android:text="(1- זה קצת  5- זה הרבה מאוד)"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="?android:attr/listDivider" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            tools:ignore="ExtraText">
+            <TextView
+                android:layout_width="64dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="6dp"
+                android:textSize="20dp"
+                android:text="עניין"/>
+
+            <Spinner
+                android:id="@+id/spinner9_1"
+                style="@style/spnr"
+                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="?android:attr/listDivider" />
+
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="2dp"
+                android:textSize="20dp"
+                android:text="שמחה"/>
+
+            <Spinner
+                android:id="@+id/spinner9_2"
+                style="@style/spnr"
+                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="?android:attr/listDivider" />
+
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="2dp"
+                android:textSize="20dp"
+                android:text="אהבה"/>
+
+            <Spinner
+                android:id="@+id/spinner9_3"
+                style="@style/spnr"
+                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="?android:attr/listDivider" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            tools:ignore="ExtraText">
+            <TextView
+                android:layout_width="64dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="6dp"
+                android:textSize="20dp"
+                android:text="הפתעה"/>
+
+            <Spinner
+                android:id="@+id/spinner10_1"
+                style="@style/spnr"
+                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="?android:attr/listDivider" />
+
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="2dp"
+                android:textSize="20dp"
+                android:text="פחד"/>
+
+            <Spinner
+                android:id="@+id/spinner10_2"
+                style="@style/spnr"
+                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="?android:attr/listDivider" />
+
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="2dp"
+                android:textSize="20dp"
+                android:text="כעס"/>
+
+            <Spinner
+                android:id="@+id/spinner10_3"
+                style="@style/spnr"
+                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="?android:attr/listDivider" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        tools:ignore="ExtraText">
+        <TextView
+            android:layout_width="64dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="6dp"
+            android:textSize="20dp"
+            android:text="עצב"/>
+
+        <Spinner
+            android:id="@+id/spinner11_1"
+            style="@style/spnr"
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+        <View
+            android:layout_width="2dp"
+            android:layout_height="match_parent"
+            android:background="?android:attr/listDivider" />
+
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="2dp"
+            android:textSize="20dp"
+            android:text="בושה"/>
+
+        <Spinner
+            android:id="@+id/spinner11_2"
+            style="@style/spnr"
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+        <View
+            android:layout_width="2dp"
+            android:layout_height="match_parent"
+            android:background="?android:attr/listDivider" />
+
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="2dp"
+            android:textSize="20dp"
+            android:text="אשמה"/>
+
+        <Spinner
+            android:id="@+id/spinner11_3"
+            style="@style/spnr"
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="?android:attr/listDivider" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            tools:ignore="ExtraText">
+            <TextView
+                android:layout_width="64dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="6dp"
+                android:textSize="20dp"
+                android:text="סלידה"/>
+
+            <Spinner
+                android:id="@+id/spinner12_1"
+                style="@style/spnr"
+                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="?android:attr/listDivider" />
+        </LinearLayout>
+    <!-- End categorize 7 -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="?android:attr/listDivider" />
+
+       <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id = "@+id/rmrk7_15"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#4BABF4"
+            android:textSize="18dp"
+            android:hint="הערות לגבי הרגשות שהבחנת היום:" />
+    </com.google.android.material.textfield.TextInputLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="6dp"
+            android:background="#0367B4" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginHorizontal="0dp"
+            android:textStyle="bold"
+            android:textColor="#0367B4"
+            android:textSize="26dp"
+            android:gravity="center"
+            android:fontFamily="@font/ganclm_boldwebfont"
+            android:text="תיקוף עצמי"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="2dp"
+            android:textStyle="normal"
+            android:textSize="18dp"
+            android:gravity="center"
+            android:text="איך תיקפת את עצמך היום? מחשבות? משהו שעשית? כאן באפשרותך לכתוב את כל אלה ולתאר אותם. ציין/י גם איך זה השפיע על עצמך אחר כך."/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="?android:attr/listDivider" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id = "@+id/rmrk7_16"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#4BABF4"
+                android:textSize="18dp"
+                android:hint="תאר כאן" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="?android:attr/listDivider" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id = "@+id/rmrk7_17"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#4BABF4"
+                android:textSize="18dp"
+                android:hint="אחר" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="6dp"
+            android:background="#0367B4" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:layout_marginHorizontal="0dp"
+            android:textStyle="bold"
+            android:textColor="#0367B4"
+            android:textSize="26dp"
+            android:gravity="center"
+            android:fontFamily="@font/ganclm_boldwebfont"
+            android:text="באילו כישורים השתמשת היום?"/>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textSize="24dp"
+            android:fontFamily="@font/ganclm_boldwebfont"
+            android:text="קשיבות"/>
+
+        <!-- Start -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            tools:ignore="ExtraText">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                tools:ignore="ExtraText">
+            <TextView
+                android:layout_width="320dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="6dp"
+                android:textSize="22dp"
+                android:text="המוח הנבון"/>
+                <TextView
+                    android:layout_width="320dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="6dp"
+                    android:textSize="16dp"
+                    android:text="לאזן בין הרגשות שלך להיגיון."/>
+
+
+            </LinearLayout>
+
+            <CheckBox
+                android:id="@+id/cb8_1y"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="0dp"
+                />
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="?android:attr/listDivider" />
+        <!-- End -->
+
+        <!-- Start -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            tools:ignore="ExtraText">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                tools:ignore="ExtraText">
+                <TextView
+                    android:layout_width="320dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="6dp"
+                    android:textSize="22dp"
+                    android:text="להתבונן"/>
+                <TextView
+                    android:layout_width="320dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="6dp"
+                    android:textSize="16dp"
+                    android:text="לשים לב למה שאת/ה חווה בלי להגיב."/>
+            </LinearLayout>
+
+            <CheckBox
+                android:id="@+id/cb8_2y"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="0dp"/>
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="?android:attr/listDivider" />
+        <!-- End -->
+        <!-- Start -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            tools:ignore="ExtraText">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                tools:ignore="ExtraText">
+                <TextView
+                    android:layout_width="320dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="6dp"
+                    android:textSize="22dp"
+                    android:text="לתאר"/>
+                <TextView
+                    android:layout_width="320dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="6dp"
+                    android:textSize="16dp"
+                    android:text="למצוא מילים לתאר את מה שאת/ה חווה."/>
+            </LinearLayout>
+
+            <CheckBox
+                android:id="@+id/cb8_3y"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="0dp"/>
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="?android:attr/listDivider" />
+        <!-- End -->
+
+        <!-- Start -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            tools:ignore="ExtraText">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                tools:ignore="ExtraText">
+                <TextView
+                    android:layout_width="320dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="6dp"
+                    android:textSize="22dp"
+                    android:text="ללא שיפוטיות"/>
+                <TextView
+                    android:layout_width="320dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="6dp"
+                    android:textSize="16dp"
+                    android:text="לשים לב מה את/ה מרגיש, אבל בלי לשפוט."/>
+            </LinearLayout>
+
+            <CheckBox
+                android:id="@+id/cb8_4y"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="0dp"/>
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="?android:attr/listDivider" />
+        <!-- End -->
+        <!-- Start -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            tools:ignore="ExtraText">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                tools:ignore="ExtraText">
+                <TextView
+                    android:layout_width="320dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="6dp"
+                    android:textSize="22dp"
+                    android:text="במלוא תשומת הלב"/>
+                <TextView
+                    android:layout_width="320dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="6dp"
+                    android:textSize="16dp"
+                    android:text="להתרכז בדבר אחד בכל זמן נתון. כאן ועכשיו. כל צעד הוא הווה חדש."/>
+            </LinearLayout>
+
+            <CheckBox
+                android:id="@+id/cb8_5y"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="0dp"/>
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="?android:attr/listDivider" />
+        <!-- End -->
+        <!-- Start -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            tools:ignore="ExtraText">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                tools:ignore="ExtraText">
+                <TextView
+                    android:layout_width="320dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="6dp"
+                    android:textSize="22dp"
+                    android:text="ביעילות"/>
+                <TextView
+                    android:layout_width="320dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="6dp"
+                    android:textSize="16dp"
+                    android:text="לפעול על בסיס הסיטואציה, ולא לפי איך שהיית רוצה שהיא תהיה. לשחרר את הצריך ואת החייבת."/>
+            </LinearLayout>
+
+            <CheckBox
+                android:id="@+id/cb8_6y"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="0dp"/>
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="?android:attr/listDivider" />
+        <!-- End -->
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textSize="24dp"
+            android:fontFamily="@font/ganclm_boldwebfont"
+            android:text="יעילות בין-אישית"/>
+        <!-- Start -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            tools:ignore="ExtraText">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                tools:ignore="ExtraText">
+                <TextView
+                    android:layout_width="320dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="6dp"
+                    android:textSize="22dp"
+                    android:text="לכוון למטרה"/>
+                <TextView
+                    android:layout_width="320dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="6dp"
+                    android:textSize="16dp"
+                    android:text="לתאר את הסיטואציה. לבטא רגשות ודעות. לעמוד על שלך באמצעות בקשת משהו או סירוב מישהו, להסביר את ההשלכות. לחזק את האדם האחר. לשמור על קשיבות ליעדים ולא לתת לדעתך להיות מוסחת, להשתמש בתקליט שבור, להתעלם מההתקפות. להיראות יעיל ובעלת יכולת. לדון על פתרונות חלופיות."/>
+            </LinearLayout>
+
+            <CheckBox
+                android:id="@+id/cb9_1y"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="0dp"/>
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="?android:attr/listDivider" />
+        <!-- End -->
+        <!-- Start -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            tools:ignore="ExtraText">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                tools:ignore="ExtraText">
+                <TextView
+                    android:layout_width="320dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="6dp"
+                    android:textSize="22dp"
+                    android:text="להתחשב במערכות היחסים"/>
+                <TextView
+                    android:layout_width="320dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="6dp"
+                    android:textSize="16dp"
+                    android:text="להתנהג בגינונים עדינים בלי התקפה או איום. התעניינות באדם האחר. לתקף את האדם האחר בלי לתקוף. קלילות הליכות עם חוש הומור."/>
+            </LinearLayout>
+
+            <CheckBox
+                android:id="@+id/cb9_2y"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="0dp"/>
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="?android:attr/listDivider" />
+        <!-- End -->
+        <!-- Start -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            tools:ignore="ExtraText">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                tools:ignore="ExtraText">
+                <TextView
+                    android:layout_width="320dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="6dp"
+                    android:textSize="22dp"
+                    android:text="לשמור על כבוד עצמי"/>
+                <TextView
+                    android:layout_width="320dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="6dp"
+                    android:textSize="16dp"
+                    android:text="להתנהג בהגינות לעצמך ולאחרים. לא להתנצל מעצם קיומך, אבל לשקול את זה אם יש לך צורך להתנצל על משהו. להגן על הערכים שלך ולדבוק לחוקים. לדבר אמת."/>
+            </LinearLayout>
+
+            <CheckBox
+                android:id="@+id/cb9_3y"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="0dp"/>
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="?android:attr/listDivider" />
+        <!-- End -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textSize="24dp"
+            android:fontFamily="@font/ganclm_boldwebfont"
+            android:text="ויסות רגשי"/>
+        <!-- Start -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            tools:ignore="ExtraText">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                tools:ignore="ExtraText">
+                <TextView
+                    android:layout_width="320dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="6dp"
+                    android:textSize="22dp"
+                    android:text="להפחית פגיעות"/>
+                <TextView
+                    android:layout_width="320dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="6dp"
+                    android:textSize="16dp"
+                    android:text="לטפל בחולי, לאכול במתינות, להימנע מסמים, להשיג שינה מספקת ולהתעמל."/>
+            </LinearLayout>
+
+            <CheckBox
+                android:id="@+id/cb10_1y"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="0dp"/>
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="?android:attr/listDivider" />
+        <!-- End -->
+        <!-- Start -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            tools:ignore="ExtraText">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                tools:ignore="ExtraText">
+                <TextView
+                    android:layout_width="320dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="6dp"
+                    android:textSize="22dp"
+                    android:text="לפתח מיומנות"/>
+                <TextView
+                    android:layout_width="320dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="6dp"
+                    android:textSize="16dp"
+                    android:text="לבנות את הביטחון העצמי שלך. לנסות להבין את עצמך ואת דרך התגובה שלך במצב בהתחשב בנסיבות ובסיפור שלך. הָבָנַת רגשות; לזהות את התחושה, מה השימושים של התחושה הזאת ואיך ביכולתך להשתמש בה."/>
+            </LinearLayout>
+
+            <CheckBox
+                android:id="@+id/cb10_2y"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="0dp"/>
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="?android:attr/listDivider" />
+        <!-- End -->
+
+        <!-- Start -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            tools:ignore="ExtraText">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                tools:ignore="ExtraText">
+                <TextView
+                    android:layout_width="320dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="6dp"
+                    android:textSize="22dp"
+                    android:text="חוויות חיוביות"/>
+                <TextView
+                    android:layout_width="320dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="6dp"
+                    android:textSize="16dp"
+                    android:text="להבחין בחוויות חיוביות וליצור כאלה - בטווח הקצר ובטווח הארוך."/>
+            </LinearLayout>
+
+            <CheckBox
+                android:id="@+id/cb10_3y"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="0dp"/>
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="?android:attr/listDivider" />
+        <!-- End -->
+        <!-- Start -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            tools:ignore="ExtraText">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                tools:ignore="ExtraText">
+                <TextView
+                    android:layout_width="320dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="6dp"
+                    android:textSize="22dp"
+                    android:text="להיות קשוב/ה לרגש הנוכחי"/>
+                <TextView
+                    android:layout_width="320dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="6dp"
+                    android:textSize="16dp"
+                    android:text="להפחית מצוקה רגשית באמצעות נתינת אפשרות לרגש להתקיים."/>
+            </LinearLayout>
+
+            <CheckBox
+                android:id="@+id/cb10_4y"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="0dp"/>
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="?android:attr/listDivider" />
+        <!-- End -->
+        <!-- Start -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            tools:ignore="ExtraText">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                tools:ignore="ExtraText">
+                <TextView
+                    android:layout_width="320dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="6dp"
+                    android:textSize="22dp"
+                    android:text="להתנהג ההפך מהתגובה הרגשית"/>
+                <TextView
+                    android:layout_width="320dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="6dp"
+                    android:textSize="16dp"
+                    android:text="לזהות את התחושה ואז לנסות לשנות אותה לזהות את התחושה ואז לנסות לשנות אותה באמצעות עשיית ההפך הגמור."/>
+            </LinearLayout>
+
+            <CheckBox
+                android:id="@+id/cb10_5y"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="0dp"/>
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="?android:attr/listDivider" />
+        <!-- End -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textSize="24dp"
+            android:fontFamily="@font/ganclm_boldwebfont"
+            android:text="עמידות במצוקה"/>
+        <!-- Start -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            tools:ignore="ExtraText">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                tools:ignore="ExtraText">
+                <TextView
+                    android:layout_width="320dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="6dp"
+                    android:textSize="22dp"
+                    android:text="להסיח את הדעת"/>
+                <TextView
+                    android:layout_width="320dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="6dp"
+                    android:textSize="16dp"
+                    android:text="פעילויות, תרומה על ידי נתינת משהו לאחרים, השוואות, להשתמש בתחושה ההפוכה, להדחיק, לחשוב על דברים אחרים או להיעזר בחושים."/>
+            </LinearLayout>
+
+            <CheckBox
+                android:id="@+id/cb11_1y"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="0dp"/>
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="?android:attr/listDivider" />
+        <!-- End -->
+        <!-- Start -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            tools:ignore="ExtraText">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                tools:ignore="ExtraText">
+                <TextView
+                    android:layout_width="320dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="6dp"
+                    android:textSize="22dp"
+                    android:text="להתרכז בחושים"/>
+                <TextView
+                    android:layout_width="320dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="6dp"
+                    android:textSize="16dp"
+                    android:text="להתרכז בהתבוננות, בהקשבה, ריח, בטעם ובמגע."/>
+            </LinearLayout>
+            <CheckBox
+                android:id="@+id/cb11_2y"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="0dp"/>
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="?android:attr/listDivider" />
+        <!-- End -->
+
+    <!-- Start -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        tools:ignore="ExtraText">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            tools:ignore="ExtraText">
+            <TextView
+                android:layout_width="320dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="6dp"
+                android:textSize="22dp"
+                android:text="לשפר את הרגע"/>
+            <TextView
+                android:layout_width="320dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="6dp"
+                android:textSize="16dp"
+                android:text="לפנטז, למצוא משמעות, להתפלל, להירגע, לעשות דבר אחד בכל פעם, לתת לעצמך קצת זמן חופשי או לעודד את עצמך."/>
+        </LinearLayout>
+            <CheckBox
+                android:id="@+id/cb11_3y"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="0dp"/>
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="?android:attr/listDivider" />
+        <!-- End -->
+    <!-- Start -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        tools:ignore="ExtraText">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            tools:ignore="ExtraText">
+            <TextView
+                android:layout_width="320dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="6dp"
+                android:textSize="22dp"
+                android:text="בעד ונגד"/>
+            <TextView
+                android:layout_width="320dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="6dp"
+                android:textSize="16dp"
+                android:text="לחשוב על המטרות שלך לטווח הארוך."/>
+        </LinearLayout>
+            <CheckBox
+                android:id="@+id/cb11_4y"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="0dp"/>
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="?android:attr/listDivider" />
+        <!-- End -->
+    <!-- Start -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        tools:ignore="ExtraText">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            tools:ignore="ExtraText">
+            <TextView
+                android:layout_width="320dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="6dp"
+                android:textSize="22dp"
+                android:text="לקבל את המצב"/>
+            <TextView
+                android:layout_width="320dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="6dp"
+                android:textSize="16dp"
+                android:text="קבלה היא הכרה במה שיש, ולא במה שהיית רוצה שיהיה. זו בחירה מודעת שיש צורך לקחת שוב ושוב."/>
+        </LinearLayout>
+            <CheckBox
+                android:id="@+id/cb11_6y"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="0dp"/>
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="?android:attr/listDivider" />
+        <!-- End -->
+    <!-- Start -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        tools:ignore="ExtraText">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            tools:ignore="ExtraText">
+            <TextView
+                android:layout_width="320dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="6dp"
+                android:textSize="22dp"
+                android:text="ליישם קשיבות"/>
+            <TextView
+                android:layout_width="320dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="6dp"
+                android:textSize="16dp"
+                android:text="לשים לב לנשימה שלך. להירגע. להיות מודע/ת לגוף שלך, לצבעים, לצורות, לצלילים, לריחות, וכן הלאה."/>
+        </LinearLayout>
+            <CheckBox
+                android:id="@+id/cb11_7y"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="0dp"/>
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="?android:attr/listDivider" />
+        <!-- End -->
+
+        <Button
+            android:id="@+id/button6"
+            android:layout_width="250dp"
+            android:layout_gravity="center"
+            android:layout_height="60dp"
+            android:backgroundTint="#0367B4"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/ganclm_boldwebfont"
+            android:text="לשמור ולשלוח" />
+        <TextView
+            android:id="@+id/snd2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:visibility="invisible"
+            android:textSize="16dp"
+            android:layout_marginBottom="35dp"
+            android:fontFamily="@font/ganclm_boldwebfont"
+            android:text="נשלח"/>
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

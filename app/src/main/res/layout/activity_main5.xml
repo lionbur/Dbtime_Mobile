@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bt_11"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@raw/dailynotivationsqr"
+    tools:context=".MainActivity5">
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="404dp"
+        android:layout_height="60dp"
+        android:layout_gravity="bottom"
+        android:background="@color/material_dynamic_neutral_variant70"
+        android:orientation="horizontal"
+        android:paddingStart="5dp"
+        android:paddingTop="0dp"
+        android:paddingEnd="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0">
+
+
+        <TextView
+            android:id="@+id/textView13"
+            style="@style/grey_bg"
+            android:fontFamily="@font/ganclm_boldwebfont"
+            android:text="עבודה על סוגי מחשבות" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@raw/ln" />
+
+        <TextView
+            android:id="@+id/textView14"
+            style="@style/grey_bg"
+            android:fontFamily="@font/ganclm_boldwebfont"
+            android:text="מיומנויות למידה" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@raw/ln" />
+
+        <TextView
+            android:id="@+id/textView12"
+            style="@style/white_bg"
+            android:fontFamily="@font/ganclm_boldwebfont"
+            android:text="מצבי לחץ ומצוקה" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/button1_1"
+        style="@style/btn"
+        android:layout_marginTop="208dp"
+        android:text="שאלות מיקוד"
+        app:cornerRadius="10dp"
+        android:fontFamily="@font/ganclm_boldwebfont"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button1_2"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        tools:ignore="DuplicateClickableBoundsCheck" />
+
+    <Button
+        android:id="@+id/button1_2"
+        style="@style/btn"
+        android:layout_marginTop="208dp"
+        android:text="מיומנות אקראית"
+        app:cornerRadius="10dp"
+        android:fontFamily="@font/ganclm_boldwebfont"
+        app:layout_constraintEnd_toStartOf="@+id/button1_1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        tools:ignore="DuplicateClickableBoundsCheck" />
+
+    <Button
+        android:id="@+id/button1_3"
+        style="@style/btn"
+        android:layout_marginTop="28dp"
+        android:text="רשימת עמידות במצוקה"
+        app:cornerRadius="10dp"
+        android:fontFamily="@font/ganclm_boldwebfont"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button1_4"
+        app:layout_constraintTop_toBottomOf="@+id/button1_1"
+        tools:ignore="DuplicateClickableBoundsCheck" />
+
+    <Button
+        android:id="@+id/button1_4"
+        style="@style/btn"
+        android:layout_marginTop="28dp"
+        android:text="פלשבק"
+        app:cornerRadius="10dp"
+        android:fontFamily="@font/ganclm_boldwebfont"
+        app:layout_constraintEnd_toStartOf="@+id/button1_3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button1_2"
+        tools:ignore="DuplicateClickableBoundsCheck" />
+
+
+    <Button
+        android:id="@+id/button3_1"
+        style="@style/btn"
+        android:layout_marginTop="208dp"
+        android:layout_weight="1"
+        android:text="מחשבות חלופיות"
+        app:cornerRadius="10dp"
+        android:fontFamily="@font/ganclm_boldwebfont"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button1_2"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+    <Button
+        android:id="@+id/button3_2"
+        style="@style/btn"
+        android:layout_marginTop="208dp"
+        android:layout_weight="1"
+        android:text="מחשבות מחזקות "
+        app:cornerRadius="10dp"
+        android:fontFamily="@font/ganclm_boldwebfont"
+        app:layout_constraintEnd_toStartOf="@+id/button1_1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+    <Button
+        android:id="@+id/button3_3"
+        style="@style/btn"
+        android:layout_marginTop="28dp"
+        android:layout_weight="1"
+        android:text="תיקופים "
+        app:cornerRadius="10dp"
+        android:fontFamily="@font/ganclm_boldwebfont"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button1_4"
+        app:layout_constraintTop_toBottomOf="@+id/button1_1" />
+
+
+    <Button
+        android:id="@+id/button2_1"
+        style="@style/btn"
+        android:layout_marginTop="208dp"
+        android:layout_weight="1"
+        android:fontFamily="@font/ganclm_boldwebfont"
+        android:text="ויסות ריגשי"
+        app:cornerRadius="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button1_2"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:strokeWidth="0dp" />
+
+    <Button
+        android:id="@+id/button2_2"
+        style="@style/btn"
+        app:srcCompat="@raw/pic107"
+        android:layout_marginTop="208dp"
+        android:layout_weight="1"
+        android:text="קשיבות"
+        app:cornerRadius="10dp"
+        android:fontFamily="@font/ganclm_boldwebfont"
+        app:layout_constraintEnd_toStartOf="@+id/button1_1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+    <Button
+        android:id="@+id/button2_3"
+        style="@style/btn"
+        android:layout_marginTop="28dp"
+        android:layout_weight="1"
+        android:text="עמידות במצוקה"
+        app:cornerRadius="10dp"
+        android:fontFamily="@font/ganclm_boldwebfont"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button1_4"
+        app:layout_constraintTop_toBottomOf="@+id/button1_1" />
+
+    <Button
+        android:id="@+id/button2_4"
+        style="@style/btn"
+        android:layout_marginTop="28dp"
+        android:layout_weight="1"
+        android:text="יעילות בין-אישית"
+        app:cornerRadius="10dp"
+        android:fontFamily="@font/ganclm_boldwebfont"
+        app:layout_constraintEnd_toStartOf="@+id/button1_3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button1_2" />
+
+
+    <Button
+        android:id="@+id/button2_5"
+        style="@style/btn"
+        android:layout_marginTop="51dp"
+        android:layout_weight="1"
+        android:text="תיקוף"
+        app:cornerRadius="10dp"
+        android:fontFamily="@font/ganclm_boldwebfont"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button1_3" />
+
+    <Button
+        android:id="@+id/button2_6"
+        style="@style/btn"
+        android:layout_marginTop="10dp"
+        android:layout_weight="1"
+        android:text="כרטיס יומן"
+        app:cornerRadius="10dp"
+        android:fontFamily="@font/ganclm_boldwebfont"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button2_5" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/op1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="150dp"
+        app:constraint_referenced_ids="button1_1,button1_2,button1_3,button1_4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/op2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="150dp"
+        app:constraint_referenced_ids="button2_1,button2_2,button2_3,button2_4,button2_5,button2_6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/op3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="150dp"
+        app:constraint_referenced_ids="button3_1,button3_2,button3_3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/hiperlink5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/hyperlink"
+        android:textColor="@color/white"
+        android:textSize="22dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.423"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <!--
+       <com.google.android.material.tabs.TabLayout
+           android:id="@+id/tabLayout"
+           android:layout_width="384dp"
+           android:layout_height="60dp"
+           android:layout_marginStart="1dp"
+           android:layout_marginTop="8dp"
+           android:layout_marginEnd="1dp"
+           app:layout_constraintEnd_toEndOf="parent"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+           <com.google.android.material.tabs.TabItem
+               android:id="@+id/tabItem"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:lines="3"
+               android:text="תפריט"
+               android:textSize="12dp" />
+
+           <com.google.android.material.tabs.TabItem
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:lines="3"
+               android:text="עבודה על סוגי מחשבות"
+               android:textSize="12dp" />
+
+
+               <com.google.android.material.tabs.TabItem
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:lines="3"
+                   android:text="מיומניות למידה"
+                   android:textSize="12dp" />
+
+
+               <com.google.android.material.tabs.TabItem
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:lines="3"
+                   android:text="מצבי לחץ ומצוקה"
+                   android:textSize="12dp" />
+           </com.google.android.material.tabs.TabLayout>
+
+
+    <TableLayout
+        android:id="@+id/op1"
+        android:layout_width="401dp"
+        android:layout_height="200dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="92dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.333"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </TableLayout>
+
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:layout_width="409dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="1dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/op1" />
+-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>
