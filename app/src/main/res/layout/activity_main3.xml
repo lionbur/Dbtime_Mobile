@@ -28,7 +28,7 @@
         android:layout_marginStart="4dp"
         android:layout_marginTop="238dp"
         android:fontFamily="@font/ganclm_boldwebfont"
-        android:text="יש לך "
+        android:text=" יש לך "
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -49,7 +49,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="2dp"
         android:layout_marginTop="238dp"
-        android:text="תפוחים"
+        android:text=" תפוחים "
         android:fontFamily="@font/ganclm_boldwebfont"
         app:layout_constraintStart_toEndOf="@+id/textView18"
         app:layout_constraintTop_toTopOf="parent" />
