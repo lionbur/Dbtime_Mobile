@@ -35,6 +35,8 @@ import android.widget.Toast;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.google.common.util.concurrent.ListenableFuture;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.sql.Time;
 import java.time.OffsetTime;
@@ -43,6 +45,8 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class MainActivity extends AppCompatActivity {
+
+    private FirebaseAuth mAuth;
 
     private void createNotificationChannel() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -63,6 +67,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // Initialize Firebase Auth
+        mAuth = FirebaseAuth.getInstance();
 
         Integer hr = 12;
 
@@ -101,12 +108,6 @@ public class MainActivity extends AppCompatActivity {
                 //myIntent.putExtra("key", value); //Optional parameters
                 MainActivity.this.startActivity(myIntent);
             }
-
-                /*
-                Snackbar sb = make(view, "מכאן נעבור למדיטציה", LENGTH_SHORT).setAnchorView(R.id.imageView2);
-                sb.show();
-
-                 */
         });
 
         findViewById(R.id.imageView).setOnClickListener(new View.OnClickListener() {
@@ -167,5 +168,15 @@ public class MainActivity extends AppCompatActivity {
                // MainActivity.this.startActivity(myIntent);
             }
         });
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        // Check if user is signed in (non-null) and update UI accordingly.
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        if(currentUser != null){
+            currentUser.reload();
+        }
     }
 }

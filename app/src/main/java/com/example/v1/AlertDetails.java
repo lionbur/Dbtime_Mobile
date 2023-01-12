@@ -14,6 +14,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class AlertDetails extends AppCompatActivity {
 
@@ -22,10 +23,13 @@ public class AlertDetails extends AppCompatActivity {
     ImageView img1, img2, img3, img4, img5;
     Integer face = 3;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alert_details);
+
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
 
         textView = (TextView) findViewById(R.id.text_input);
         bt = (Button) findViewById(R.id.button3);
