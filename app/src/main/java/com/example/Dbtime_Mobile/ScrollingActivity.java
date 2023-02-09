@@ -1,29 +1,23 @@
-package com.example.v1;
+package com.example.Dbtime_Mobile;
 
 import static java.lang.String.valueOf;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
-import android.graphics.PorterDuff;
-import android.os.Build;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.view.menu.BaseMenuPresenter;
 
 import android.os.Handler;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.DatePicker;
-import android.widget.EditText;
-import android.widget.NumberPicker;
 import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
-import com.example.v1.databinding.ActivityScrollingBinding;
+
+import com.example.Dbtime_Mobile.databinding.ActivityScrollingBinding;
 import com.google.android.material.textfield.TextInputEditText;
 
 import java.text.SimpleDateFormat;

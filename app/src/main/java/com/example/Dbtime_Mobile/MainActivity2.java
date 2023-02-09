@@ -1,26 +1,15 @@
-package com.example.v1;
+package com.example.Dbtime_Mobile;
 
-import static com.google.android.material.internal.ContextUtils.getActivity;
-import static com.google.android.material.snackbar.BaseTransientBottomBar.LENGTH_SHORT;
-
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.print.PrintHelper;
 
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
-import android.text.method.LinkMovementMethod;
 import android.view.View;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import com.google.android.material.snackbar.Snackbar;
 
 import java.io.File;
 import java.io.FileOutputStream;

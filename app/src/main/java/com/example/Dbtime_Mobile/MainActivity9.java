@@ -1,4 +1,4 @@
-package com.example.v1;
+package com.example.Dbtime_Mobile;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,12 +7,9 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.text.method.LinkMovementMethod;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import java.util.Date;
 
 public class MainActivity9 extends AppCompatActivity {
 

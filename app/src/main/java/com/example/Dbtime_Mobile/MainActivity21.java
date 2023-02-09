@@ -1,17 +1,11 @@
-package com.example.v1;
-
-import static java.security.AccessController.getContext;
+package com.example.Dbtime_Mobile;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.text.method.LinkMovementMethod;
-import android.view.View;
 import android.widget.TextView;
 
-import java.util.Calendar;
-import java.util.Date;
 import java.util.Random;
 
 public class MainActivity21 extends AppCompatActivity {

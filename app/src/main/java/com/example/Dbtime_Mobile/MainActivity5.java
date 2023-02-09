@@ -1,13 +1,8 @@
-package com.example.v1;
+package com.example.Dbtime_Mobile;
 
 import static android.graphics.Color.BLUE;
-import static com.google.android.material.snackbar.BaseTransientBottomBar.LENGTH_LONG;
-import static com.google.android.material.snackbar.BaseTransientBottomBar.LENGTH_SHORT;
 import static com.google.android.material.snackbar.Snackbar.make;
 
-import static java.security.AccessController.getContext;
-
-import androidx.annotation.ColorInt;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.Group;
 import androidx.core.content.res.ResourcesCompat;
@@ -19,10 +14,8 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.method.LinkMovementMethod;
-import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.google.android.material.snackbar.Snackbar;

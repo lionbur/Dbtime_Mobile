@@ -1,13 +1,13 @@
 plugins {
     id 'com.android.application'
-    id 'com.google.gms.google-services'
+    //id 'com.google.gms.google-services'
 }
 
 android {
     compileSdk 32
 
     defaultConfig {
-        applicationId "com.example.v1"
+        applicationId "com.example.Dbtime_Mobile"
         minSdk 21
         targetSdk 31
         versionCode 1
@@ -26,7 +26,7 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-    namespace 'com.example.v1'
+    namespace 'com.example.Dbtime_Mobile'
     buildFeatures {
         viewBinding true
     }
@@ -35,7 +35,7 @@ android {
 dependencies {
 
     // Import the BoM for the Firebase platform
-    implementation platform('com.google.firebase:firebase-bom:31.1.1')
+    implementation platform('com.google.firebase:firebase-bom:31.2.0')
     // Add the dependency for the Firebase Authentication library
     // When using the BoM, you don't specify versions in Firebase library dependencies
     implementation 'com.google.firebase:firebase-auth'
@@ -46,6 +46,9 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.5.1'
     implementation 'androidx.recyclerview:recyclerview:1.2.1'
     implementation 'com.google.firebase:firebase-database:20.1.0'
+    implementation 'androidx.annotation:annotation:1.5.0'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.5.1'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1'
     def work_version = "2.7.1"
     implementation "androidx.work:work-runtime:$work_version"
     implementation 'com.github.travijuu:numberpicker:1.0.7'
