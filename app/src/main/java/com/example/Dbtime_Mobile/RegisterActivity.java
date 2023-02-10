@@ -5,6 +5,7 @@ import static android.content.ContentValues.TAG;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -12,10 +13,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.IgnoreExtraProperties;
@@ -34,13 +40,14 @@ public class RegisterActivity extends AppCompatActivity {
     private DatabaseReference mDatabase;
     public String TAG = "Rubi";
     FirebaseFirestore db = FirebaseFirestore.getInstance();
+    public FirebaseAuth mAuth;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        //= FirebaseDatabase.getInstance().getReference();
         userFirstNameEdt = findViewById(R.id.FirstName);
         userLastNameEdt = findViewById(R.id.LastName);
         passwordEdt = findViewById(R.id.Password);
@@ -49,11 +56,12 @@ public class RegisterActivity extends AppCompatActivity {
         phone = findViewById(R.id.Phone);
         id = findViewById(R.id.UserId);
         registerBtn = findViewById(R.id.button);
+        mAuth = FirebaseAuth.getInstance();
+        loadingPB = findViewById(R.id.progressBar);
 
         registerBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d(TAG,"#2");
                 String userFirstName = userFirstNameEdt.getText().toString();
                 String userLastName = userLastNameEdt.getText().toString();
                 String password = passwordEdt.getText().toString();
@@ -92,7 +100,6 @@ public class RegisterActivity extends AppCompatActivity {
                 if(full ==true) {
                 //Intent i = new Intent(getApplicationContext(), MainActivity_backup.class);
                 //startActivity(i);
-                Log.d(TAG,"#4:"+full);
                 writeNewUser(userFirstName,userLastName,password,
                         userEmail,userPhone,userId);
                  }
@@ -102,13 +109,36 @@ public class RegisterActivity extends AppCompatActivity {
 
     public void writeNewUser(String userFirstName,String userLastName,String password,
                              String userEmail,String userPhone,String userId) {
-        Log.d(TAG,"#3");
         Map<String, Object> user = new HashMap<>();
         user.put("first", userFirstName);
         user.put("last", userLastName);
         user.put("pw", password);
         user.put("phone", userPhone);
         user.put("mail", userEmail);
+
+        //=========
+        mAuth.createUserWithEmailAndPassword(userEmail, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                // on below line we are checking if the task is success or not.
+                if (task.isSuccessful()) {
+
+                    // in on success method we are hiding our progress bar and opening a login activity.
+                    loadingPB.setVisibility(View.GONE);
+                   // Toast.makeText(RegisterActivity.this, "User Registered..", Toast.LENGTH_SHORT).show();
+                   // Intent i = new Intent(RegisterActivity.this, LoginActivity.class);
+                   // startActivity(i);
+                    finish();
+                } else {
+
+                    // in else condition we are displaying a failure toast message.
+                    loadingPB.setVisibility(View.GONE);
+                    Toast.makeText(RegisterActivity.this, "Fail to register user..", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        //========
 
         db.collection("users").document(userId)
                 .set(user)
