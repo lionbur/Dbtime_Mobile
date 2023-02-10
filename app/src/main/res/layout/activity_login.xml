@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black_shade_1"
+    android:background="@raw/mnubg"
     tools:context=".LoginActivity">
 
     <!--edit text for user name-->
@@ -16,8 +16,9 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="140dp"
         android:layout_marginEnd="20dp"
-        android:hint="Enter User Name"
+        android:hint="אימייל"
         android:padding="5dp"
+
         android:textColorHint="@color/white"
         app:hintTextColor="@color/white">
 
@@ -30,6 +31,7 @@
             android:inputType="textEmailAddress"
             android:textColor="@color/white"
             android:textColorHint="@color/white"
+            android:background="@color/l_grey"
             android:textSize="14sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -42,7 +44,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="40dp"
         android:layout_marginEnd="20dp"
-        android:hint="Enter your Password"
+        android:hint="סיסמא"
         android:padding="5dp"
         android:textColorHint="@color/white"
         app:hintTextColor="@color/white">
@@ -56,6 +58,7 @@
             android:inputType="textPassword"
             android:textColor="@color/white"
             android:textColorHint="@color/white"
+            android:background="@color/l_grey"
             android:textSize="14sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -69,7 +72,7 @@
         android:layout_marginTop="40dp"
         android:layout_marginEnd="25dp"
 
-        android:text="Login"
+        android:text="כניסה"
         android:textAllCaps="false"
         />
 
@@ -82,7 +85,7 @@
         android:layout_marginTop="40dp"
         android:gravity="center"
         android:padding="10dp"
-        android:text="New User ? Register Here"
+        android:text="משתמש חדש? הרשם כאן"
         android:textAlignment="center"
         android:textAllCaps="false"
         android:textColor="@color/white"

@@ -63,7 +63,7 @@ public class LoginActivity extends AppCompatActivity {
                 String password = passwordEdt.getText().toString();
                 // on below line validating the text input.
                 if (TextUtils.isEmpty(email) && TextUtils.isEmpty(password)) {
-                    Toast.makeText(LoginActivity.this, "Please enter your credentials..", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "נא להכניס אימייל וסיסמא שאיתם נרשמת למערכת", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 // on below line we are calling a sign in method and passing email and password to it.
@@ -74,7 +74,7 @@ public class LoginActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             // on below line we are hiding our progress bar.
                             loadingPB.setVisibility(View.GONE);
-                            Toast.makeText(LoginActivity.this, "Login Successful..", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginActivity.this, "הכניסה בוצע בהצלחה", Toast.LENGTH_SHORT).show();
                             // on below line we are opening our mainactivity.
                             Intent i = new Intent(LoginActivity.this, MainActivity.class);
                             startActivity(i);
@@ -82,7 +82,7 @@ public class LoginActivity extends AppCompatActivity {
                         } else {
                             // hiding our progress bar and displaying a toast message.
                             loadingPB.setVisibility(View.GONE);
-                            Toast.makeText(LoginActivity.this, "Please enter valid user credentials..", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginActivity.this, "אימייל או סיסמא שגויים, נא נסה שנית", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
@@ -93,6 +93,7 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
+        /*
         // in on start method checking if
         // the user is already sign in.
         FirebaseUser user = mAuth.getCurrentUser();
@@ -103,5 +104,7 @@ public class LoginActivity extends AppCompatActivity {
             startActivity(i);
             this.finish();
         }
+
+         */
     }
 }
