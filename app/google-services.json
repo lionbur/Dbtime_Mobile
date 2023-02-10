@@ -7,9 +7,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:562486981720:android:716222520bac39a680462d",
+        "mobilesdk_app_id": "1:562486981720:android:07e064adbb00956880462d",
         "android_client_info": {
-          "package_name": "com.example.v1"
+          "package_name": "com.example.Dbtime_Mobile"
         }
       },
       "oauth_client": [

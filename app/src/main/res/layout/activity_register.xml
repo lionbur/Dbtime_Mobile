@@ -5,8 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@raw/bg"
-    tools:context=".HomeActivity">
+
+    tools:context=".RegisterActivity">
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/FirstName_wrp"

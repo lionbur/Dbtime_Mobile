@@ -32,6 +32,7 @@ public class RegisterActivity extends AppCompatActivity {
     private Button registerBtn;
     private ProgressBar loadingPB;
     private DatabaseReference mDatabase;
+    public String TAG = "Rubi";
     FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     @Override
@@ -40,8 +41,6 @@ public class RegisterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register);
 
         //= FirebaseDatabase.getInstance().getReference();
-
-
         userFirstNameEdt = findViewById(R.id.FirstName);
         userLastNameEdt = findViewById(R.id.LastName);
         passwordEdt = findViewById(R.id.Password);
@@ -54,6 +53,7 @@ public class RegisterActivity extends AppCompatActivity {
         registerBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Log.d(TAG,"#2");
                 String userFirstName = userFirstNameEdt.getText().toString();
                 String userLastName = userLastNameEdt.getText().toString();
                 String password = passwordEdt.getText().toString();
@@ -63,6 +63,7 @@ public class RegisterActivity extends AppCompatActivity {
                 String userId = id.getText().toString();
                 Boolean full = true;
                 if( TextUtils.isEmpty(userFirstNameEdt.getText())){
+                    Log.d(TAG,"#4");
                     userFirstNameEdt.setError( "יש להכניס שם פרטי" );
                     full = false;}
                 if( TextUtils.isEmpty(userLastNameEdt.getText())){
@@ -88,19 +89,20 @@ public class RegisterActivity extends AppCompatActivity {
                 if( TextUtils.isEmpty(id.getText())){
                     id.setError( "יש להכניס תעודת זהות" );
                     full = false;}
-                //if(full ==true) {
+                if(full ==true) {
                 //Intent i = new Intent(getApplicationContext(), MainActivity_backup.class);
                 //startActivity(i);
+                Log.d(TAG,"#4:"+full);
                 writeNewUser(userFirstName,userLastName,password,
                         userEmail,userPhone,userId);
-                // }
+                 }
             }
         });
     }
 
     public void writeNewUser(String userFirstName,String userLastName,String password,
                              String userEmail,String userPhone,String userId) {
-
+        Log.d(TAG,"#3");
         Map<String, Object> user = new HashMap<>();
         user.put("first", userFirstName);
         user.put("last", userLastName);
