@@ -98,10 +98,11 @@ public class RegisterActivity extends AppCompatActivity {
                     id.setError( "יש להכניס תעודת זהות" );
                     full = false;}
                 if(full ==true) {
-                //Intent i = new Intent(getApplicationContext(), MainActivity_backup.class);
-                //startActivity(i);
+
                 writeNewUser(userFirstName,userLastName,password,
                         userEmail,userPhone,userId);
+                Intent i = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(i);
                  }
             }
         });
@@ -109,6 +110,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     public void writeNewUser(String userFirstName,String userLastName,String password,
                              String userEmail,String userPhone,String userId) {
+        loadingPB.setVisibility(View.VISIBLE);
         Map<String, Object> user = new HashMap<>();
         user.put("first", userFirstName);
         user.put("last", userLastName);
@@ -125,15 +127,15 @@ public class RegisterActivity extends AppCompatActivity {
 
                     // in on success method we are hiding our progress bar and opening a login activity.
                     loadingPB.setVisibility(View.GONE);
-                   // Toast.makeText(RegisterActivity.this, "User Registered..", Toast.LENGTH_SHORT).show();
-                   // Intent i = new Intent(RegisterActivity.this, LoginActivity.class);
-                   // startActivity(i);
+                    Toast.makeText(RegisterActivity.this, "User Registered..", Toast.LENGTH_LONG).show();
+                   // Intent i = new Intent(RegisterActivity.this, MainActivity.class);
+                  //  startActivity(i);
                     finish();
                 } else {
 
                     // in else condition we are displaying a failure toast message.
                     loadingPB.setVisibility(View.GONE);
-                    Toast.makeText(RegisterActivity.this, "Fail to register user..", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegisterActivity.this, "Fail to register user..", Toast.LENGTH_LONG).show();
                 }
             }
         });
