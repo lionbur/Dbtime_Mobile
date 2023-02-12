@@ -110,6 +110,7 @@ public class AlertDetails extends AppCompatActivity {
         findViewById(R.id.button3).setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 sndTxt.setVisibility((View.VISIBLE));
+                //TODO update backend and database
                 (new Handler()).postDelayed(this::yourMethod, 1000);
 
                 //Intent i = new Intent(AlertDetails.this, MainActivity.class);
