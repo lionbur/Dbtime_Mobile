@@ -32,7 +32,7 @@ public class ScheduleNotifications extends Worker {
     public Result doWork() {
 
         // Do the work here
-        if(hr == 7 || hr == 14 || hr == 20 ) {
+       if(hr == 7 || hr == 14 || hr == 20 ) {
             createNotification();
         }
         // Indicate whether the work finished successfully with the Result

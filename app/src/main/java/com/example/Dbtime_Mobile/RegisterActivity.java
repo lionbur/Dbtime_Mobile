@@ -142,7 +142,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         //========
 
-        db.collection("users").document(userId)
+        db.collection("users").document(userEmail)
                 .set(user)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
