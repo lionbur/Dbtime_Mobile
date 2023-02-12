@@ -3,6 +3,7 @@ package com.example.Dbtime_Mobile;
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -24,7 +25,6 @@ public class AlertDetails extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alert_details);
-
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
         textView = (TextView) findViewById(R.id.text_input);

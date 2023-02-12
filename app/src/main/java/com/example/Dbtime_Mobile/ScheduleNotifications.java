@@ -4,6 +4,7 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
@@ -30,7 +31,7 @@ public class ScheduleNotifications extends Worker {
     @Override
     public Result doWork() {
 
-        // Do the work here--in this case, upload the images.
+        // Do the work here
         if(hr == 7 || hr == 14 || hr == 20 ) {
             createNotification();
         }
@@ -42,7 +43,7 @@ public class ScheduleNotifications extends Worker {
         Intent intent = new Intent(getApplicationContext(), AlertDetails.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         PendingIntent pendingIntent = PendingIntent.getActivity(getApplicationContext(), 0, intent, PendingIntent.FLAG_IMMUTABLE);
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(getApplicationContext(), "9")
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(getApplicationContext(), "12")
                 .setSmallIcon(R.raw.icon)
                 .setContentTitle("מה מצב הרוח שלך?")
                 .setContentText("היי, אנא לחץ על האימוג'י שמתאר את מצב הרוח שלך")

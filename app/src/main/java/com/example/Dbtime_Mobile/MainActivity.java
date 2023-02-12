@@ -2,33 +2,31 @@ package com.example.Dbtime_Mobile;
 
 import static com.google.android.material.snackbar.Snackbar.LENGTH_SHORT;
 import static com.google.android.material.snackbar.Snackbar.make;
-
 import android.annotation.SuppressLint;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.content.Context;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.text.method.LinkMovementMethod;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.work.PeriodicWorkRequest;
 import androidx.work.WorkManager;
-
 import com.google.android.material.snackbar.Snackbar;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-
 import java.time.OffsetTime;
 import java.util.concurrent.TimeUnit;
 
 public class MainActivity extends AppCompatActivity {
-
-    private FirebaseAuth mAuth;
 
     private void createNotificationChannel() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -42,6 +40,19 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    public boolean isNotificationChannelEnabled(Context context, @Nullable String channelId){
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            if(!TextUtils.isEmpty(channelId)) {
+                NotificationManager manager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+                NotificationChannel channel = manager.getNotificationChannel(channelId);
+                return channel.getImportance() != NotificationManager.IMPORTANCE_NONE;
+            }
+            return false;
+        } else {
+            return NotificationManagerCompat.from(context).areNotificationsEnabled();
+        }
+    }
+
     View lo;
 
     @SuppressLint("ResourceType")
@@ -49,10 +60,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        // Initialize Firebase Auth
-        mAuth = FirebaseAuth.getInstance();
-
         Integer hr = 12;
 
         TextView link = (TextView) findViewById(R.id.hiperlink);
@@ -74,6 +81,10 @@ public class MainActivity extends AppCompatActivity {
         }
 
         createNotificationChannel();
+
+        Boolean isOpen = isNotificationChannelEnabled(MainActivity.this,"12");
+        Log.d("Rubi","Chanel Enabled = "+isOpen.toString());
+
         WorkManager.getInstance(this).cancelAllWorkByTag("cleanup");
         WorkManager.getInstance(this).cancelAllWork();
         PeriodicWorkRequest PSN = null;
@@ -155,10 +166,13 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onStart() {
         super.onStart();
+        /*
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if(currentUser != null){
             currentUser.reload();
         }
+
+         */
     }
 }
