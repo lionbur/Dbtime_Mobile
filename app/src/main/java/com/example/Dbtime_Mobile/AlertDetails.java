@@ -2,6 +2,7 @@ package com.example.Dbtime_Mobile;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -20,6 +21,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.time.OffsetTime;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -33,12 +35,20 @@ public class AlertDetails extends AppCompatActivity {
     private FirebaseAuth mAuth;
     Date date = new Date();
     String dateSTR = date.toString();
+    OffsetTime offset = null;
+    String offserSTR = "";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alert_details);
         FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            offset = OffsetTime.now();
+            offserSTR = offset.toString();
+        }
 
         mAuth = FirebaseAuth.getInstance();
         FirebaseUser user = mAuth.getCurrentUser();
@@ -119,7 +129,6 @@ public class AlertDetails extends AppCompatActivity {
                 img3.setImageResource(R.raw.mg_3);
                 img4.setImageResource(R.raw.mg_4);
                 img5.setImageResource(R.raw.mg_5bg);
-                //TODO save locally time, choice and textInput
             }
         });
         findViewById(R.id.button3).setOnClickListener(new View.OnClickListener() {
@@ -129,6 +138,7 @@ public class AlertDetails extends AppCompatActivity {
                 notificationFB.put("choice", face.toString());
                 notificationFB.put("whatDoIDo", textView.getText().toString());
                 notificationFB.put("dateTime", dateSTR);
+                notificationFB.put("timeMS", offserSTR);
 
                 db.collection("users").document(email)
                         .collection("notificationFB").document(dateSTR)

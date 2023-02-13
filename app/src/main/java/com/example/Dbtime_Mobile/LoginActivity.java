@@ -90,8 +90,7 @@ public class LoginActivity extends AppCompatActivity {
             Intent i = new Intent(LoginActivity.this, MainActivity.class);
             startActivity(i);
             this.finish();
+            6-
+         */
         }
-*/
-
-    }
 }

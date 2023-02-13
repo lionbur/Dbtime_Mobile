@@ -42,7 +42,7 @@ public class ScheduleNotifications extends Worker {
     private void createNotification() {
         Intent intent = new Intent(getApplicationContext(), AlertDetails.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        PendingIntent pendingIntent = PendingIntent.getActivity(getApplicationContext(), 0, intent, PendingIntent.FLAG_IMMUTABLE);
+        PendingIntent pendingIntent = PendingIntent.getActivity(getApplicationContext(), 8, intent, PendingIntent.FLAG_IMMUTABLE);
         NotificationCompat.Builder builder = new NotificationCompat.Builder(getApplicationContext(), "12")
                 .setSmallIcon(R.raw.icon)
                 .setContentTitle("מה מצב הרוח שלך?")

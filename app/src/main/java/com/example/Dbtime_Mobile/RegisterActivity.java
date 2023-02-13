@@ -122,40 +122,32 @@ public class RegisterActivity extends AppCompatActivity {
         mAuth.createUserWithEmailAndPassword(userEmail, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-                // on below line we are checking if the task is success or not.
                 if (task.isSuccessful()) {
-
-                    // in on success method we are hiding our progress bar and opening a login activity.
                     loadingPB.setVisibility(View.GONE);
                     Toast.makeText(RegisterActivity.this, "User Registered..", Toast.LENGTH_LONG).show();
-                   // Intent i = new Intent(RegisterActivity.this, MainActivity.class);
-                  //  startActivity(i);
+
+                    db.collection("users").document(userEmail)
+                    .set(user)
+                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                            Log.d(TAG, "DocumentSnapshot successfully written!");
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Log.w(TAG, "Error writing document", e);
+                        }
+                    });
+
                     finish();
                 } else {
-
-                    // in else condition we are displaying a failure toast message.
                     loadingPB.setVisibility(View.GONE);
                     Toast.makeText(RegisterActivity.this, "Fail to register user..", Toast.LENGTH_LONG).show();
                 }
             }
         });
-
-        //========
-
-        db.collection("users").document(userEmail)
-                .set(user)
-                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void aVoid) {
-                        Log.d(TAG, "DocumentSnapshot successfully written!");
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Log.w(TAG, "Error writing document", e);
-                    }
-                });
     }
 
     @IgnoreExtraProperties

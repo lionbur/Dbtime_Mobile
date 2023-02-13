@@ -122,8 +122,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-
         findViewById(R.id.imageButton9).setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent myIntent = new Intent(MainActivity.this, MainActivity4.class);
@@ -139,15 +137,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        /*
-        findViewById(R.id.imageButton11).setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                Snackbar sb = make(view, "מכאן נעבור למשחקים", LENGTH_SHORT).setAnchorView(R.id.imageButton11);
-                sb.show();
-            }
-        });
-
-         */
         findViewById(R.id.imageView9).setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent myIntent = new Intent(MainActivity.this, MainActivity3.class);
