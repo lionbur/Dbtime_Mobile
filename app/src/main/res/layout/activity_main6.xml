@@ -67,6 +67,7 @@
         android:fontFamily="@font/ganclm_boldwebfont"
         android:hint="רשום לעצמך הודעה עתידית לחיזוק"
         android:lines="6"
+        android:textSize="14dp"
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

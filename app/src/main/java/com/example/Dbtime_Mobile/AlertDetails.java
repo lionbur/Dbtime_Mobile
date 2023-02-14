@@ -1,5 +1,7 @@
 package com.example.Dbtime_Mobile;
 
+import static java.lang.String.valueOf;
+
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Build;
@@ -33,6 +35,8 @@ public class AlertDetails extends AppCompatActivity {
     ImageView img1, img2, img3, img4, img5;
     Integer face = 3;
     private FirebaseAuth mAuth;
+    long time= System.currentTimeMillis();
+    String timeMS = String.valueOf(time);
     Date date = new Date();
     String dateSTR = date.toString();
     OffsetTime offset = null;
@@ -138,7 +142,7 @@ public class AlertDetails extends AppCompatActivity {
                 notificationFB.put("choice", face.toString());
                 notificationFB.put("whatDoIDo", textView.getText().toString());
                 notificationFB.put("dateTime", dateSTR);
-                notificationFB.put("timeMS", offserSTR);
+                notificationFB.put("timeMS", timeMS);
 
                 db.collection("users").document(email)
                         .collection("notificationFB").document(dateSTR)
@@ -158,7 +162,7 @@ public class AlertDetails extends AppCompatActivity {
                             }
                         });
 
-                (new Handler()).postDelayed(this::yourMethod, 15000);
+                (new Handler()).postDelayed(this::yourMethod, 5000);
                 //Intent i = new Intent(AlertDetails.this, MainActivity.class);
                 //startActivity(i);
             }

@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="127dp"
         android:text="היעדים והתגמול שלי"
-        android:textSize="40dp"
+        android:textSize="32dp"
         android:fontFamily="@font/ganclm_boldwebfont"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
