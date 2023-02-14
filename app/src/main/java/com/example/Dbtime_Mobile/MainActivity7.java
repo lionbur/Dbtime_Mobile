@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.method.LinkMovementMethod;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
@@ -22,8 +23,15 @@ import java.util.Date;
 
 public class MainActivity7 extends AppCompatActivity {
 
+   // public Date now = new Date();
+   // long nowMilli = now.getTime();
+    public Long dtNmbr= Long.valueOf(new Date().getTime());
     public Integer i = 0;
-    public Long dtNmbr= Long.valueOf(0);
+    public Integer second = 1000;
+    public Integer minute = 60*second;
+    public Integer hour = 60*minute;
+    public Integer day = 24*hour;
+    //public Long dtNmbr= Long.valueOf(0);
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,23 +53,20 @@ public class MainActivity7 extends AppCompatActivity {
         ProgressBar pb5 = (ProgressBar) findViewById(R.id.pb5);
         ProgressBar pb6 = (ProgressBar) findViewById(R.id.pb6);
         FloatingActionButton fltBt = (FloatingActionButton) findViewById(R.id.floatingActionButton);
-        Integer dayMS = 24 * 60 * 60 * 1000;
-        Integer hourMS = 60 * 60 * 1000;
-        Integer minutsMS = 60 * 1000;
-        Integer secondMS = 1000;
-
-
         final Handler h = new Handler();
         h.postDelayed(new Runnable() {
-            private long time = 0;
+            public long time = 0;
             public void run() {
-                Date now = new Date();
-                long nowMilli = now.getTime();
+                long nowMilli = new Date().getTime();
                 long dif = nowMilli-dtNmbr;
-                Integer difdays = Math.toIntExact(dif / dayMS);
-                Integer difhors = Math.toIntExact((dif-difdays*dayMS )/ hourMS);
-                Integer difminuts = Math.toIntExact((dif- (long) difdays *dayMS-difhors*hourMS)/ minutsMS);
-                Integer difseconds = Math.toIntExact((dif-difdays*dayMS-difhors*hourMS-difminuts*minutsMS)/ secondMS);
+                Integer difdays = Math.toIntExact(dif / day);
+                Integer difhors = Math.toIntExact((dif- (long) difdays *day )/ hour);
+                Log.d("Rubi","#0: "+((dif- (long) difdays *day )/ hour));
+                Log.d("Rubi","#1: "+difhors);
+                Integer difminuts = Math.toIntExact((dif- (long) difdays *day- (long) difhors *hour)/ minute);
+                Log.d("Rubi","#2: "+difminuts);
+                Integer difseconds = Math.toIntExact((dif- (long) difdays *day- (long) difhors *hour- (long) difminuts *minute)/ second);
+                Log.d("Rubi","#3: "+difseconds);
 
                 tv24.setText(String.valueOf(difdays));
                 tv26.setText(String.valueOf(difhors));

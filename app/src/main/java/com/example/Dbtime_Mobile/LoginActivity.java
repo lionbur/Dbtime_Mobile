@@ -80,7 +80,7 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        /*
+
         // in on start method checking if
         // the user is already sign in.
         FirebaseUser user = mAuth.getCurrentUser();
@@ -90,7 +90,7 @@ public class LoginActivity extends AppCompatActivity {
             Intent i = new Intent(LoginActivity.this, MainActivity.class);
             startActivity(i);
             this.finish();
-            6-
-         */
+            }
+
         }
 }
