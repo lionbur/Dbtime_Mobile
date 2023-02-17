@@ -32,7 +32,7 @@ import java.util.Map;
 public class MainActivity6 extends AppCompatActivity {
 
     public Integer i = 0;
-    public ArrayList userSentences, globalSentences,list;
+    public ArrayList globalSentences,list;
     private FirebaseAuth mAuth;
     long time= System.currentTimeMillis();
     String timeMS = String.valueOf(time);
@@ -77,8 +77,6 @@ public class MainActivity6 extends AppCompatActivity {
                                 }
                             }
                         });
-
-
                     } else {
                         Log.d("Rubi", "No such document");
                     }
@@ -87,47 +85,13 @@ public class MainActivity6 extends AppCompatActivity {
                 }
             }
         });
-
-        /*
-        DocumentReference userDoc = db.collection("users").document(email)
-                .collection("sentences").document("list");
-        userDoc.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                if (task.isSuccessful()) {
-                    DocumentSnapshot document = task.getResult();
-                    if (document.exists()) {
-                       list = new ArrayList(document.getData().values());
-                       list.addAll(globalSentences);
-                    } else {
-                        Log.d("Rubi", "No such document");
-                    }
-                } else {
-                    Log.d("Rubi", "get failed with ", task.getException());
-                }
-            }
-        });
-
-         */
 
         TextView link = (TextView) findViewById(R.id.hiperlink6);
         link.setMovementMethod(LinkMovementMethod.getInstance());
 
-        /*
-        final ArrayList<String> list = new ArrayList<String>();
-        list.add("אם אתם רוצים להיות מאושרים, הציבו לעצמכם מטרה, שחררו לחופשי את האנרגיה שלכם, והיו מלאי השראה ותקווה");
-        list.add("אם אתם מתחילים לחשוב שהבעיה נמצאת 'שם', עצרו מיד. הבעיה האמיתית היא עצם המחשבה הזו");
-        list.add("אנחנו יכולים ליצור שלום בתוכנו אם אנחנו מרפים מהרצון לשנות את העבר ולשלוט בעתיד");
-        list.add("כל מה שמוחו של אדם יכול לקבל ולהאמין בו, הוא גם יכול להשיג");
-        list.add("אל תחתרו להצלחה, שאפו להיות בעלי ערך");
-
-         */
-
         TextInputEditText inpt = (TextInputEditText) findViewById(R.id.inpt);
         Button entr = (Button) findViewById(R.id.button5);
         TextView tv = (TextView)findViewById(R.id.textView15);
-
-
 
         findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
@@ -172,24 +136,20 @@ public class MainActivity6 extends AppCompatActivity {
         Map<String, Object> newSentence = new HashMap<>();
         newSentence.put(timeMS, sentence);
 
-       // db.collection('cities').doc('BJ').set({capital: true},{ merge: true });
-
         db.collection("users").document(email)
-                .collection("sentences").document("list")
-                .update(timeMS, sentence)
-                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void aVoid) {
-                        Log.d("Rubi", "DocumentSnapshot successfully written!");
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Log.d("Rubi", "Error writing document", e);
-                    }
-                } );
-
-
+        .collection("sentences").document("list")
+        .update(timeMS, sentence)
+        .addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+                Log.d("Rubi", "DocumentSnapshot successfully written!");
+            }
+        })
+        .addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Log.d("Rubi", "Error writing document", e);
+            }
+        } );
     }
 }

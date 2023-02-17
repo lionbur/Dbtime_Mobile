@@ -66,9 +66,6 @@ public class AlertDetails extends AppCompatActivity {
         img4 = (ImageView) findViewById(R.id.imageView4);
         img5 = (ImageView) findViewById(R.id.imageView5);
         sndTxt = (TextView) findViewById(R.id.textView2);
-        userEmail = (TextView) findViewById(R.id.textView32);
-
-        userEmail.setText(email);
 
         findViewById(R.id.imageView1).setOnClickListener(new View.OnClickListener() {
             @SuppressLint("ResourceType")
@@ -137,7 +134,7 @@ public class AlertDetails extends AppCompatActivity {
         });
         findViewById(R.id.button3).setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                sndTxt.setVisibility((View.VISIBLE));
+                bt.setVisibility(View.INVISIBLE);
                 Map<String, Object> notificationFB = new HashMap<>();
                 notificationFB.put("choice", face.toString());
                 notificationFB.put("whatDoIDo", textView.getText().toString());
@@ -150,14 +147,15 @@ public class AlertDetails extends AppCompatActivity {
                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void aVoid) {
-                                userEmail.setText("success");
+                                //userEmail.setText("success");
+                                sndTxt.setVisibility((View.VISIBLE));
                                 Log.d("Rubi", "DocumentSnapshot successfully written!");
                             }
                         })
                         .addOnFailureListener(new OnFailureListener() {
                             @Override
                             public void onFailure(@NonNull Exception e) {
-                                userEmail.setText("error");
+                                sndTxt.setText("error");
                                 Log.d("Rubi", "Error writing document", e);
                             }
                         });
