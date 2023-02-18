@@ -64,13 +64,15 @@
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/inpt71"
-        android:layout_width="385dp"
+        android:layout_width="match_parent"
         android:layout_height="56dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="26dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/ganclm_boldwebfont"
         android:hint="הוסף יעד חדש"
         android:lines="6"
         android:visibility="gone"
-        android:fontFamily="@font/ganclm_boldwebfont"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
