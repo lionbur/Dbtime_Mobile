@@ -87,8 +87,8 @@ public class MainActivity3 extends AppCompatActivity {
                            targetArr = (ArrayList) targets.get(i);
                            quota = (Long) targetArr.get(1);
                            applesCount=applesCount+dif/quota;
-                           aplsCount.setText(Long.toString(applesCount));
                        }
+                        aplsCount.setText(Long.toString(applesCount));
                     }
                 } else {
                     Log.d("Rubi", "get failed with ", task.getException());
