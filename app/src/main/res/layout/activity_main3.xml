@@ -39,7 +39,7 @@
         android:layout_marginStart="2dp"
         android:layout_marginTop="238dp"
         android:fontFamily="@font/ganclm_boldwebfont"
-        android:text="8"
+        android:text="0"
         app:layout_constraintStart_toEndOf="@+id/textView16"
         app:layout_constraintTop_toTopOf="parent" />
 

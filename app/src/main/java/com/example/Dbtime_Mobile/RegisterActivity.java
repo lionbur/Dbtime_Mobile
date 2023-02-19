@@ -104,11 +104,6 @@ public class RegisterActivity extends AppCompatActivity {
                 if(full ==true) {
                     writeNewUser(userFirstName,userLastName,password,
                             userEmail,userPhone,userId);
-                    /*
-                    Intent i = new Intent(getApplicationContext(), MainActivity.class);
-                    startActivity(i);
-
-                     */
                  }
             }
         });
