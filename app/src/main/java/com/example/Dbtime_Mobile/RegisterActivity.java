@@ -28,6 +28,7 @@ import com.google.firebase.database.IgnoreExtraProperties;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -41,6 +42,9 @@ public class RegisterActivity extends AppCompatActivity {
     public String TAG = "Rubi";
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     public FirebaseAuth mAuth;
+    String userEmail;
+    Map<String, Object> user = new HashMap<>();
+    public ArrayList newTargetArr;
 
 
     @Override
@@ -66,7 +70,7 @@ public class RegisterActivity extends AppCompatActivity {
                 String userLastName = userLastNameEdt.getText().toString();
                 String password = passwordEdt.getText().toString();
                 String confirmPassword = confirmPwdEdt.getText().toString();
-                String userEmail = email.getText().toString();
+                userEmail = email.getText().toString();
                 String userPhone = phone.getText().toString();
                 String userId = id.getText().toString();
                 Boolean full = true;
@@ -98,11 +102,13 @@ public class RegisterActivity extends AppCompatActivity {
                     id.setError( "יש להכניס תעודת זהות" );
                     full = false;}
                 if(full ==true) {
+                    writeNewUser(userFirstName,userLastName,password,
+                            userEmail,userPhone,userId);
+                    /*
+                    Intent i = new Intent(getApplicationContext(), MainActivity.class);
+                    startActivity(i);
 
-                writeNewUser(userFirstName,userLastName,password,
-                        userEmail,userPhone,userId);
-                Intent i = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(i);
+                     */
                  }
             }
         });
@@ -111,7 +117,7 @@ public class RegisterActivity extends AppCompatActivity {
     public void writeNewUser(String userFirstName,String userLastName,String password,
                              String userEmail,String userPhone,String userId) {
         loadingPB.setVisibility(View.VISIBLE);
-        Map<String, Object> user = new HashMap<>();
+
         user.put("first", userFirstName);
         user.put("last", userLastName);
         user.put("pw", password);
@@ -124,27 +130,14 @@ public class RegisterActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
                     loadingPB.setVisibility(View.GONE);
-                    Toast.makeText(RegisterActivity.this, "User Registered..", Toast.LENGTH_LONG).show();
-
-                    db.collection("users").document(userEmail)
-                    .set(user)
-                    .addOnSuccessListener(new OnSuccessListener<Void>() {
-                        @Override
-                        public void onSuccess(Void aVoid) {
-                            Log.d(TAG, "DocumentSnapshot successfully written!");
-                        }
-                    })
-                    .addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            Log.w(TAG, "Error writing document", e);
-                        }
-                    });
-
+                    Toast.makeText(RegisterActivity.this, "נרשמת בהצלחה", Toast.LENGTH_LONG).show();
+                    addUserToDB();
                     finish();
+                    Intent i = new Intent(getApplicationContext(), MainActivity.class);
+                    startActivity(i);
                 } else {
                     loadingPB.setVisibility(View.GONE);
-                    Toast.makeText(RegisterActivity.this, "Fail to register user..", Toast.LENGTH_LONG).show();
+                    Toast.makeText(RegisterActivity.this, "לא הצלחנו לרשום אותך, בדוק שוב את הנתונים שהכנסת", Toast.LENGTH_LONG).show();
                 }
             }
         });
@@ -174,5 +167,48 @@ public class RegisterActivity extends AppCompatActivity {
             this.userId = userId;
         }
 
+    }
+
+    public void addUserToDB() {
+        db.collection("users").document(userEmail)
+                .set(user)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Log.d(TAG, "DocumentSnapshot successfully written!");
+                        addFirstTarget();
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.w(TAG, "Error writing document", e);
+                    }
+                });
+    }
+
+    public void addFirstTarget() {
+        Map<String, Object> newTarget = new HashMap<>();
+        String timeMS = String.valueOf(System.currentTimeMillis());
+        newTargetArr = new ArrayList();
+        newTargetArr.add("התחלתי להשתמש במערכת");
+        newTargetArr.add(604800000);
+        newTargetArr.add("שבוע");
+        newTarget.put(timeMS, newTargetArr);
+        db.collection("users").document(userEmail)
+                .collection("targets").document("list")
+                .set(newTarget)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Log.d(TAG, "DocumentSnapshot successfully written!");
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.w(TAG, "Error writing document", e);
+                    }
+                });
     }
 }

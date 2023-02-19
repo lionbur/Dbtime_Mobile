@@ -109,7 +109,7 @@
         android:layout_height="49dp"
         android:layout_marginStart="4dp"
         android:layout_marginTop="10dp"
-        android:text="TextView"
+        android:text=""
         android:fontFamily="@font/ganclm_boldwebfont"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"

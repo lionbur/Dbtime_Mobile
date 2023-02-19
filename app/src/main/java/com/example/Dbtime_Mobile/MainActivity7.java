@@ -38,24 +38,25 @@ import java.util.Map;
 
 public class MainActivity7 extends AppCompatActivity {
 
-    public Long dtNmbr= Long.valueOf(new Date().getTime());
+    public Long currentTargetStartMS= Long.valueOf(new Date().getTime());
     public Integer i = 0;
     public Integer second = 1000;
     public Integer minute = 60*second;
     public Integer hour = 60*minute;
     public Integer day = 24*hour;
     public ArrayList target,from,targetArr,newTargetArr;
-    public String txt;
+    public String txt,t;
     public long dif, nowMilli;
     public DocumentReference userTargets;
     TextView tv,tv18,tv24,tv26,tv28,tv30;
     ProgressBar pb3,pb4,pb5,pb6;
 
     private FirebaseAuth mAuth;
-    long time= System.currentTimeMillis();
-    String timeMS = String.valueOf(time);
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     String email;
+    TextInputEditText inpt;
+    Button entr;
+    Calendar c;
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,8 +64,8 @@ public class MainActivity7 extends AppCompatActivity {
         setContentView(R.layout.activity_main7);
 
         tv = (TextView)findViewById(R.id.textView15);
-        TextInputEditText inpt = (TextInputEditText) findViewById(R.id.inpt71);
-        Button entr = (Button) findViewById(R.id.button5);
+        inpt = (TextInputEditText) findViewById(R.id.inpt71);
+        entr = (Button) findViewById(R.id.button5);
         tv18 = (TextView)findViewById(R.id.tv18);
         tv24 = (TextView)findViewById(R.id.textView24);
         tv26 = (TextView)findViewById(R.id.textView26);
@@ -81,10 +82,8 @@ public class MainActivity7 extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         FirebaseUser user = mAuth.getCurrentUser();
         email = user.getEmail();
-        final Calendar c = Calendar.getInstance();
-
+        c = Calendar.getInstance();
         getTargetsFromBackEnd();
-
         pb3.setMax(365);
         pb4.setMax(24);
         pb5.setMax(60);
@@ -94,56 +93,52 @@ public class MainActivity7 extends AppCompatActivity {
         final Handler h = new Handler();
         h.postDelayed(new Runnable() {
             public long time = 0;
-
             public void run() {
-                if (target!= null){
-                    nowMilli = new Date().getTime();
-                    dif = nowMilli - dtNmbr;
-                    Integer difdays = Math.toIntExact(dif / day);
-                    Integer difhors = Math.toIntExact((dif - (long) difdays * day) / hour);
-                    Integer difminuts = Math.toIntExact((dif - (long) difdays * day - (long) difhors * hour) / minute);
-                    Integer difseconds = Math.toIntExact((dif - (long) difdays * day - (long) difhors * hour - (long) difminuts * minute) / second);
+                nowMilli = new Date().getTime();
+                dif = nowMilli - currentTargetStartMS;
+                Integer difdays = Math.toIntExact(dif / day);
+                Integer difhors = Math.toIntExact((dif - (long) difdays * day) / hour);
+                Integer difminuts = Math.toIntExact((dif - (long) difdays * day - (long) difhors * hour) / minute);
+                Integer difseconds = Math.toIntExact((dif - (long) difdays * day - (long) difhors * hour - (long) difminuts * minute) / second);
 
-                    tv24.setText(String.valueOf(difdays));
-                    tv26.setText(String.valueOf(difhors));
-                    tv28.setText(String.valueOf(difminuts));
-                    tv30.setText(String.valueOf(difseconds));
-                    pb3.setProgress(difdays);
-                    pb4.setProgress(difhors);
-                    pb5.setProgress(difminuts);
-                    pb6.setProgress(difseconds);
-                    tv18.setText(getDate(dtNmbr, c));
-                    time += 1000;
-                    h.postDelayed(this, 1000);
-                }
+                tv24.setText(String.valueOf(difdays));
+                tv26.setText(String.valueOf(difhors));
+                tv28.setText(String.valueOf(difminuts));
+                tv30.setText(String.valueOf(difseconds));
+                pb3.setProgress(difdays);
+                pb4.setProgress(difhors);
+                pb5.setProgress(difminuts);
+                pb6.setProgress(difseconds);
+                tv18.setText(getDate(currentTargetStartMS, c));
+                time += 1000;
+                h.postDelayed(this, 1000);
             }
         }, 1000); // 1 second delay (takes millis)
 
         findViewById(R.id.frwrd).setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                if(target!=null) {
+                if(target!=null&&target.size()!=0) {
                     if (i < target.size() - 1) i++;
                     else i = 0;
                     targetArr = (ArrayList) target.get(i);
                     txt = targetArr.get(0).toString();
-                    //txt = (target.get(i)).get(0).toString();
                     tv.setText(txt);
-                    dtNmbr = valueOf((String) from.get(i));
-                    tv18.setText(getDate(dtNmbr, c));
+                    currentTargetStartMS = valueOf((String) from.get(i));
+                    tv18.setText(getDate(currentTargetStartMS, c));
                 }
             }
         });
 
         findViewById(R.id.bckwrd).setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                if (target != null) {
+                if (target != null&&target.size()!=0) {
                     if (i > 0) i--;
                     else i = target.size() - 1;
                     targetArr = (ArrayList) target.get(i);
                     txt = targetArr.get(0).toString();
                     tv.setText(txt);
-                    dtNmbr = valueOf((String) from.get(i));
-                    tv18.setText(getDate(dtNmbr, c));
+                    currentTargetStartMS = valueOf((String) from.get(i));
+                    tv18.setText(getDate(currentTargetStartMS, c));
                 }
             }
         });
@@ -154,7 +149,6 @@ public class MainActivity7 extends AppCompatActivity {
                 inpt.setVisibility((View.VISIBLE));
                 entr.setVisibility((View.VISIBLE));
                 fltBt.setVisibility((View.INVISIBLE));
-
             }
         });
 
@@ -162,16 +156,7 @@ public class MainActivity7 extends AppCompatActivity {
         findViewById(R.id.button5).setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 fltBt.setVisibility((View.VISIBLE));
-                String t =inpt.getText().toString();
-                Date dd = new Date();
-                Long ddms = dd.getTime();
-                from.add(String.valueOf(ddms));
-                i=target.size()-1;
-                tv.setText(t);
-                dtNmbr = valueOf((String) from.get(i));
-                tv18.setText(getDate(dtNmbr,c));
-                inpt.setVisibility((View.INVISIBLE));
-                entr.setVisibility((View.INVISIBLE));
+                t =inpt.getText().toString();
                 addTarget(t);
             }
         });
@@ -179,18 +164,18 @@ public class MainActivity7 extends AppCompatActivity {
         // Reset start date
         findViewById(R.id.button7).setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                updateStartTarget(dtNmbr.toString(),txt);
+                updateStartTarget(currentTargetStartMS.toString(),txt);
                 Date dd = new Date();
                 Long ddms = dd.getTime();
                 from.set(i, (String.valueOf(ddms)));
-                dtNmbr = ddms;
-                tv18.setText(getDate(dtNmbr,c));
+                currentTargetStartMS = ddms;
+                tv18.setText(getDate(currentTargetStartMS,c));
             }
         });
     }
 
-    public String getDate(Long dtNmbr, Calendar c){
-        c.setTimeInMillis(dtNmbr);
+    public String getDate(Long currentTargetStartMS, Calendar c){
+        c.setTimeInMillis(currentTargetStartMS);
         int year = c.get(Calendar.YEAR);
         int month = c.get(Calendar.MONTH);
         int day = c.get(Calendar.DAY_OF_MONTH);
@@ -203,7 +188,8 @@ public class MainActivity7 extends AppCompatActivity {
         newTargetArr.add(theNewTarget);
         newTargetArr.add(604800000);
         newTargetArr.add("שבוע");
-        newTarget.put(timeMS, newTargetArr);
+        String nowMS = String.valueOf(System.currentTimeMillis());
+        newTarget.put(nowMS, newTargetArr);
 
         db.collection("users").document(email)
         .collection("targets").document("list")
@@ -213,8 +199,15 @@ public class MainActivity7 extends AppCompatActivity {
             public void onSuccess(Void aVoid) {
                 Log.d("Rubi", "DocumentSnapshot successfully written!");
                 i++;
-                from.add(timeMS);
+                from.add(nowMS);
                 target.add(newTargetArr);
+
+                i=target.size()-1;
+                tv.setText(theNewTarget);
+                currentTargetStartMS = valueOf((String) from.get(i));
+                tv18.setText(getDate(currentTargetStartMS,c));
+                inpt.setVisibility((View.INVISIBLE));
+                entr.setVisibility((View.INVISIBLE));
             }
         })
         .addOnFailureListener(new OnFailureListener() {
@@ -226,11 +219,11 @@ public class MainActivity7 extends AppCompatActivity {
     }
 
     public void updateStartTarget(String newStartMS,String trgt){
-        dif = nowMilli-dtNmbr;
+        dif = nowMilli-currentTargetStartMS;
         addTarget(trgt); // Add updated target
         // Delete the old target
         Map<String,Object> toDelete = new HashMap<>();
-        toDelete.put(dtNmbr.toString(), FieldValue.delete());
+        toDelete.put(currentTargetStartMS.toString(), FieldValue.delete());
 
         db.collection("users").document(email)
         .collection("targets").document("list")
@@ -263,10 +256,12 @@ public class MainActivity7 extends AppCompatActivity {
                         targetArr = (ArrayList) target.get(0);
                         txt = targetArr.get(0).toString();
                         tv.setText(txt);
-                        dtNmbr = valueOf((String) from.get(0));
-
+                        currentTargetStartMS = valueOf((String) from.get(0));
                     } else {
                         Log.d("Rubi", "No such document");
+                        from = new ArrayList();
+                        target = new ArrayList();
+                        targetArr = new ArrayList();
                     }
                 } else {
                     Log.d("Rubi", "get failed with ", task.getException());

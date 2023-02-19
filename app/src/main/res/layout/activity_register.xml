@@ -50,8 +50,8 @@
             android:id="@+id/LastName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@color/white"
             android:textColorHint="@color/white"
-            app:hintTextColor="@color/white"
             android:background="@color/l_grey"
             android:hint="שם משפחה" />
     </com.google.android.material.textfield.TextInputLayout>
