@@ -197,6 +197,7 @@ public class RegisterActivity extends AppCompatActivity {
                     @Override
                     public void onSuccess(Void aVoid) {
                         Log.d(TAG, "DocumentSnapshot successfully written!");
+                        addNotificationFBToDB();
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
@@ -206,4 +207,23 @@ public class RegisterActivity extends AppCompatActivity {
                     }
                 });
     }
+
+    public void addNotificationFBToDB() {
+        db.collection("users").document(userEmail)
+                .collection("notificationFB").document("Initialize")
+                .set(user)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Log.d(TAG, "DocumentSnapshot successfully written!");
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.w(TAG, "Error writing document", e);
+                    }
+                });
+    }
+
 }
