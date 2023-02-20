@@ -29,6 +29,7 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -45,6 +46,10 @@ public class RegisterActivity extends AppCompatActivity {
     String userEmail;
     Map<String, Object> user = new HashMap<>();
     public ArrayList newTargetArr;
+    long time= System.currentTimeMillis();
+    String timeMS = String.valueOf(time);
+    Date date = new Date();
+    String dateSTR = date.toString();
 
 
     @Override
@@ -209,9 +214,14 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     public void addNotificationFBToDB() {
+        Map<String, Object> notificationFB = new HashMap<>();
+        notificationFB.put("choice", "9");
+        notificationFB.put("whatDoIDo", "initialize");
+        notificationFB.put("dateTime", dateSTR);
+        notificationFB.put("timeMS", timeMS);
         db.collection("users").document(userEmail)
                 .collection("notificationFB").document("Initialize")
-                .set(user)
+                .set(notificationFB)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
