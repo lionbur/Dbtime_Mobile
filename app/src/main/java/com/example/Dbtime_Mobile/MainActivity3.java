@@ -28,7 +28,7 @@ public class MainActivity3 extends AppCompatActivity {
 
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     public DocumentReference userTargets;
-    public ArrayList targets,from,targetArr;
+    public ArrayList targets,from,targetArr,targetsQuotaAsString,targetsList;
     public FirebaseAuth mAuth;
 
     public String email;
@@ -58,6 +58,8 @@ public class MainActivity3 extends AppCompatActivity {
         findViewById(R.id.textView9).setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent myIntent = new Intent(MainActivity3.this, MainActivity7.class);
+              //  myIntent.putExtra("from",from);
+              //  myIntent.putExtra("target",targets);
                 MainActivity3.this.startActivity(myIntent);
             }
         });
@@ -65,6 +67,8 @@ public class MainActivity3 extends AppCompatActivity {
         findViewById(R.id.imageView7).setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent myIntent = new Intent(MainActivity3.this, MainActivity8.class);
+                myIntent.putExtra("targets",targetsList);
+                myIntent.putExtra("quotas",targetsQuotaAsString);
                 MainActivity3.this.startActivity(myIntent);
             }
         });
@@ -81,11 +85,15 @@ public class MainActivity3 extends AppCompatActivity {
                     if (document.exists()&&!document.getData().isEmpty()) {
                         from = new ArrayList(document.getData().keySet());
                         targets = new ArrayList(document.getData().values());
+                        targetsQuotaAsString = new ArrayList();
+                        targetsList = new ArrayList();
                        for(int i=0; i<from.size();i++) {
                            currentTargetStartMS = valueOf((String) from.get(i));
                            dif = nowMS-currentTargetStartMS;
                            targetArr = (ArrayList) targets.get(i);
                            quota = (Long) targetArr.get(1);
+                           targetsQuotaAsString.add(targetArr.get(2));
+                           targetsList.add(targetArr.get(0));
                            applesCount=applesCount+dif/quota;
                        }
                         aplsCount.setText(Long.toString(applesCount));

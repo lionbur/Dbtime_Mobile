@@ -242,6 +242,17 @@ public class MainActivity7 extends AppCompatActivity {
         } );
     }
 
+    /*
+    public void getTargetsFromBackEnd(){
+        Bundle extras = getIntent().getExtras();
+        from = extras.getStringArrayList("from");
+        target = extras.getStringArrayList("targets");
+        Log.d("Rubi","#1: "+from);
+        Log.d("Rubi","#2: "+target);
+    }
+
+     */
+
     public void getTargetsFromBackEnd(){
         userTargets = db.collection("users").document(email)
                 .collection("targets").document("list");
