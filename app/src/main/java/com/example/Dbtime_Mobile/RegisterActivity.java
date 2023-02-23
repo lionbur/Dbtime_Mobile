@@ -31,6 +31,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class RegisterActivity extends AppCompatActivity {
@@ -222,6 +223,26 @@ public class RegisterActivity extends AppCompatActivity {
         db.collection("users").document(userEmail)
                 .collection("notificationFB").document("Initialize")
                 .set(notificationFB)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Log.d(TAG, "DocumentSnapshot successfully written!");
+                        addSentenceToDB();
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.w(TAG, "Error writing document", e);
+                    }
+                });
+    }
+
+    public void addSentenceToDB() {
+        Map<String, Object> sentence = new HashMap<>();
+        db.collection("users").document(userEmail)
+                .collection("sentences").document("list")
+                .set(sentence)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
