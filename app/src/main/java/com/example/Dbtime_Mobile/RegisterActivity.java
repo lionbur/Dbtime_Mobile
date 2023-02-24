@@ -40,7 +40,7 @@ public class RegisterActivity extends AppCompatActivity {
     private TextView loginTV;
     private Button registerBtn;
     private ProgressBar loadingPB;
-    private DatabaseReference mDatabase;
+    //private DatabaseReference mDatabase;
     public String TAG = "Rubi";
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     public FirebaseAuth mAuth;
@@ -267,7 +267,7 @@ public class RegisterActivity extends AppCompatActivity {
                     @Override
                     public void onSuccess(Void aVoid) {
                         Log.d(TAG, "DocumentSnapshot successfully written!");
-                        addBloodPressureToDB();
+                        addHartRateToDB();
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
@@ -278,7 +278,7 @@ public class RegisterActivity extends AppCompatActivity {
                 });
     }
 
-    public void addBloodPressureToDB() {
+    public void addHartRateToDB() {
         Map<String, Object> measure = new HashMap<>();
         db.collection("users").document(userEmail)
                 .collection("measures").document("list")
