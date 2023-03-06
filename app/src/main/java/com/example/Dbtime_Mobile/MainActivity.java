@@ -116,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
 
         findViewById(R.id.imageButton11).setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Uri uri = Uri.parse("https://poki.com");
+                Uri uri = Uri.parse("https://poki.co.il/%D7%97%D7%A9%D7%99%D7%91%D7%94");
                 Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                 startActivity(intent);
             }
@@ -127,13 +127,6 @@ public class MainActivity extends AppCompatActivity {
                 Intent myIntent = new Intent(MainActivity.this, MainActivity4.class);
                 //myIntent.putExtra("key", value); //Optional parameters
                 MainActivity.this.startActivity(myIntent);
-            }
-        });
-
-        findViewById(R.id.imageView14).setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                Snackbar sb = make(view, "מכן נעבור לטמגוצ'י", LENGTH_SHORT);
-                sb.show();
             }
         });
 

@@ -38,6 +38,7 @@ public class MainActivity6 extends AppCompatActivity {
     String timeMS = String.valueOf(time);
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     String email;
+    DocumentReference globalDoc;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -49,7 +50,7 @@ public class MainActivity6 extends AppCompatActivity {
         FirebaseUser user = mAuth.getCurrentUser();
         email = user.getEmail();
 
-        DocumentReference globalDoc = db.collection("sentences").document("list");
+        globalDoc = db.collection("users").document(email).collection("sentences").document("list");
         globalDoc.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
@@ -136,9 +137,10 @@ public class MainActivity6 extends AppCompatActivity {
         Map<String, Object> newSentence = new HashMap<>();
         newSentence.put(timeMS, sentence);
 
-        db.collection("users").document(email)
-        .collection("sentences").document("list")
-        .update(timeMS, sentence)
+       // db.collection("users").document(email)
+       // .collection("sentences").document("list")
+        //.update(timeMS, sentence)
+        globalDoc.update(timeMS, sentence)
         .addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
