@@ -146,6 +146,17 @@ public class MainActivity extends AppCompatActivity {
                // MainActivity.this.startActivity(myIntent);
             }
         });
+
+
+        findViewById(R.id.button8).setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Snackbar sb = make(view, "בדיקה למעגל בחירה", LENGTH_SHORT).setAnchorView(R.id.imageView2);
+                sb.show();
+                 Intent myIntent = new Intent(MainActivity.this, MainActivity10.class);
+                //myIntent.putExtra("key", value); //Optional parameters
+                 MainActivity.this.startActivity(myIntent);
+            }
+        });
     }
 
     @Override
