@@ -64,6 +64,7 @@ dependencies {
     implementation 'androidx.core:core-ktx:+'
     implementation 'androidx.core:core-ktx:+'
     implementation 'androidx.core:core-ktx:+'
+    implementation 'com.google.firebase:firebase-firestore-ktx:24.4.4'
     def work_version = "2.7.1"
     implementation "androidx.work:work-runtime:$work_version"
     implementation 'com.github.travijuu:numberpicker:1.0.7'

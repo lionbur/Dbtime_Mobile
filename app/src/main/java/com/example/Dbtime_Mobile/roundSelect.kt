@@ -2,6 +2,7 @@ package com.example.Dbtime_Mobile
 
 import android.os.Bundle
 import android.util.DisplayMetrics
+import android.util.Log
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -34,6 +35,8 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.TextFieldValue
 import com.example.composetutorial.ui.theme.ComposeTutorialTheme
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import java.lang.Math.*
 import kotlin.math.atan2
 
@@ -44,6 +47,7 @@ var dns = displayMetrics.density
 var rd = 1f
 var angle = 200.1
 var pic =R.raw.pic11
+val db = Firebase.firestore
 
 class roundSelect : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -158,15 +162,7 @@ fun Content() {
         drawIntoCanvas {
             it.nativeCanvas.drawText("מה ההרגשה כרגע בגוף?",  250f, 200f, paint)
         }
-        /*
-        drawLine(
-            start = Offset(x = 0f, y = height/2),
-            end = Offset(x = width/2, y = 0f),
-            color = Color.Blue,
-            strokeWidth = 20f
-        )
 
-         */
         drawCircle(color = Color.Blue, center = handleCenter, radius = 60f)
     }
     Image(
@@ -408,6 +404,20 @@ fun sendButton() {
     Button(
         modifier = btnModifier,
         onClick = {
+
+            val user = hashMapOf(
+                "first" to "Ada",
+                "last" to "Lovelace",
+                "born" to 1815
+            )
+            db.collection("users")
+                .add(user)
+                .addOnSuccessListener { documentReference ->
+                    Log.d("RRubi", "DocumentSnapshot added with ID: ${documentReference.id}")
+                }
+                .addOnFailureListener { e ->
+                    Log.w("RRubi", "Error adding document", e)
+                }
             //your onclick code here
         }) {
         Text(text = "שלח")
