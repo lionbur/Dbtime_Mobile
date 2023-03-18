@@ -152,7 +152,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Snackbar sb = make(view, "בדיקה למעגל בחירה", LENGTH_SHORT).setAnchorView(R.id.imageView2);
                 sb.show();
-                 Intent myIntent = new Intent(MainActivity.this, MainActivity10.class);
+                 Intent myIntent = new Intent(MainActivity.this, roundSelect.class);
                 //myIntent.putExtra("key", value); //Optional parameters
                  MainActivity.this.startActivity(myIntent);
             }
