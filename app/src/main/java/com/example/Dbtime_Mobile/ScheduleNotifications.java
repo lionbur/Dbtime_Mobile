@@ -32,7 +32,7 @@ public class ScheduleNotifications extends Worker {
     public Result doWork() {
 
         // Do the work here
-       if(hr == 7 || hr == 14 || hr == 20 ) {
+       if(hr == 7 || hr == 13 || hr == 20 ) {
             createNotification();
         }
         // Indicate whether the work finished successfully with the Result
@@ -40,7 +40,8 @@ public class ScheduleNotifications extends Worker {
     }
 
     private void createNotification() {
-        Intent intent = new Intent(getApplicationContext(), AlertDetails.class);
+       //Intent intent = new Intent(getApplicationContext(), AlertDetails.class);
+       Intent intent = new Intent(getApplicationContext(), roundSelect.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         PendingIntent pendingIntent = PendingIntent.getActivity(getApplicationContext(), 8, intent, PendingIntent.FLAG_IMMUTABLE);
         NotificationCompat.Builder builder = new NotificationCompat.Builder(getApplicationContext(), "12")

@@ -148,7 +148,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        findViewById(R.id.button8).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.test).setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Snackbar sb = make(view, "בדיקה למעגל בחירה", LENGTH_SHORT).setAnchorView(R.id.imageView2);
                 sb.show();
@@ -157,6 +157,9 @@ public class MainActivity extends AppCompatActivity {
                  MainActivity.this.startActivity(myIntent);
             }
         });
+
+
+
     }
 
     @Override

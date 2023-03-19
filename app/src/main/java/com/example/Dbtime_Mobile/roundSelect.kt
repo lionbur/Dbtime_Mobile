@@ -18,12 +18,9 @@ import androidx.compose.ui.draw.drawWithCache
 import androidx.compose.ui.geometry.CornerRadius
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
-import androidx.compose.ui.graphics.Brush
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.Paint
+import androidx.compose.ui.graphics.*
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.graphics.drawscope.drawIntoCanvas
-import androidx.compose.ui.graphics.nativeCanvas
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
@@ -90,13 +87,16 @@ fun Content() {
         textAlign = android.graphics.Paint.Align.CENTER
     }
     val imageModifier = Modifier
-        .offset(y = ((height / 2) - rd / 2).dp, x = ((width / 2) - rd / 2).dp)
+        .offset(y = ((height / 3.6) - rd / 2).dp, x = ((width / 2) - rd / 2).dp)
         .clip(CircleShape)
         .size((rd).dp)
-
+    Column {
     Canvas(
         modifier = Modifier
-            .fillMaxSize()
+            .width((width).dp)
+            .height((height / 1.8).dp)
+            .padding(8.dp)
+            //   .fillMaxSize()
             .drawWithCache {
                 val brush = Brush.linearGradient(
                     listOf(
@@ -173,11 +173,13 @@ fun Content() {
             size = Size(radius * 2, radius * 2)
         )
         drawIntoCanvas {
-            it.nativeCanvas.drawText("מה ההרגשה כרגע בגוף?",  250f, 200f, paint)
+            it.nativeCanvas.drawText("מה ההרגשה כרגע בגוף?", 250f, -140f, paint)
         }
 
         drawCircle(color = Color.Blue, center = handleCenter, radius = 60f)
     }
+        secondCanvas()
+}
     Image(
         painter = painterResource(
             id = getPic(angle)
@@ -186,7 +188,6 @@ fun Content() {
         contentScale = ContentScale.Fit,
         modifier = imageModifier,
     )
-    // }
 }
 
 private fun getPic(angl: Double): Int {
@@ -257,10 +258,13 @@ fun PreviewContent() {
     ComposeTutorialTheme {
         Surface {
             Content()
+            secondCanvas()
             MyDB1()
             MyDB2()
             MyDB3()
             sendButton()
+            MySliderDemo()
+
         }
     }
 }
@@ -269,7 +273,7 @@ fun PreviewContent() {
 @Composable
 fun MyDB1() {
     val dropDounModifier = Modifier
-        .offset(y = ((height / 2) + rd*1.2).dp, x = 8.dp)
+        .offset(y = ((height / 2) + rd*0.4).dp, x = 8.dp)
         .size((width/1.6).dp)
         .height((rd/3).dp)
     val listItems = arrayOf("בחר","אהבה","אושר","שמחה","נעימות","אמון","בטחון","גאווה","נינוחות","יציבות","התרגשות","סלחנות","חמלה","אכפתיות","רוממות רוח","פיוס","אדיבות","אמפטיה","מוצלחות","סיפוק","הישג","עליונות","כבוד","עונג","רעננות","נאמנות","הכרת תודה","אינטימיות","תקווה","השראה","הצלחה","סקרנות","אומץ","חיבה","נדיבות","איפוק","שלווה")
@@ -308,6 +312,8 @@ fun MyDB1() {
                 // menu item
                 DropdownMenuItem(onClick = {
                     selectedItem1 = selectedOption
+
+
                     Toast.makeText(contextForToast, selectedOption, Toast.LENGTH_SHORT).show()
                     expanded = false
                 }) {
@@ -326,7 +332,7 @@ private infix fun String.by(remember: MutableState<String>) {
 @Composable
 fun MyDB2() {
     val dropDounModifier = Modifier
-        .offset(y = ((height / 2) + rd*1.7).dp, x = 8.dp)
+        .offset(y = ((height / 2) + rd*0.9).dp, x = 8.dp)
         .size((width/1.6).dp)
     val listItems = arrayOf("בחר","פעלתנות","שחרור","זיכוך","חופש","נחרצות","להיטות","תעוזה","מסוגלות","ערנות","התרגשות","ספקנות","מחויבות","אדישות","אפתיה","ניתוק","אטימות","קפדנות")
     val contextForToast = LocalContext.current.applicationContext
@@ -378,7 +384,7 @@ fun MyDB2() {
 @Composable
 fun MyDB3() {
     val dropDounModifier = Modifier
-        .offset(y = ((height / 2) + rd*2.2).dp, x = 8.dp)
+        .offset(y = ((height / 2) + rd*1.4).dp, x = 8.dp)
         .size((width/1.6).dp)
     val listItems = arrayOf("בחר","פחד","לחץ","עצב","כעס","שנאה","קנאה","עקצוץ","גועל","בוז","דיכאון","בגידה","אכזבה","התנגדות","זיעה","רעד","גירוד","גל קור","גל חום","עוינות","ציניות","זלזול","חוסר איזון","עצבנות","עייפות","דחייה","נטישה","פספוס – החמצה","חוסר ערך","דאגה","בלבול","תסכול","בדידות","מועקה","חוסר וודאות","קורבנות","מרירות")
     val contextForToast = LocalContext.current.applicationContext
@@ -430,16 +436,13 @@ fun MyDB3() {
 fun sendButton() {
     var cntx = LocalContext.current.applicationContext
     val btnModifier = Modifier
-        .offset(y = ((height / 2) + rd*2.2).dp, x = (width/1.4).dp)
+        .offset(y = ((height / 2) + rd*2.1).dp, x = (width/4).dp)
         .height((width/6).dp)
-        .width((width/4).dp)
+        .width((width/2).dp)
         .clip(CircleShape)
-      //  .alpha(1f)
-
     Button(
         modifier = btnModifier,
         onClick = {
-          //  btnModifier. alpha(0f)
             val notificationFB = hashMapOf(
                 "picChoice" to picChoice,
                 "dateTime" to dateSTR,
@@ -470,3 +473,40 @@ fun sendButton() {
     }
 }
 
+@Composable
+fun MySliderDemo(
+      ModifierSlyder: Modifier =   Modifier
+        .offset(y = ((height / 2) + rd*0.4).dp, x = 8.dp)
+        .size((width/1.6).dp)
+        .height((rd/3).dp)
+) {
+    var sliderPosition by remember { mutableStateOf(0f) }
+    Text(modifier = ModifierSlyder, text = sliderPosition.toString())
+    Slider(modifier = ModifierSlyder, value = sliderPosition, onValueChange = { sliderPosition = it })
+}
+
+@Composable
+fun secondCanvas() {
+    Canvas(
+        modifier = Modifier
+            .offset(y = ((height / 1.85)).dp, x = 0.dp)
+            .width((width).dp)
+            .height((height / 2.15).dp)
+            .padding(8.dp)
+            .drawWithCache {
+                val brush = Brush.linearGradient(
+                    listOf(
+                        Color(0xFF25BFEA),
+                        Color(0xFF06B7E9)
+                    )
+                )
+                onDrawBehind {
+                    drawRoundRect(
+                        brush,
+                        cornerRadius = CornerRadius(10.dp.toPx())
+                    )
+                }
+            }
+    ) {
+    }
+}
