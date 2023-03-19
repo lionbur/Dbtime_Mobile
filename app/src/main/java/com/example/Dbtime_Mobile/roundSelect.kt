@@ -1,5 +1,7 @@
 package com.example.Dbtime_Mobile
 
+//import com.example.Dbtime_Mobile.values.themesKT.roundSelect
+//import com.example.composetutorial.ui.theme.ComposeTutorialTheme
 import android.os.Bundle
 import android.util.DisplayMetrics
 import android.util.Log
@@ -7,16 +9,12 @@ import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.*
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-//import com.example.Dbtime_Mobile.values.themesKT.roundSelect
-//import com.example.composetutorial.ui.theme.ComposeTutorialTheme
-import androidx.compose.ui.unit.dp
 import androidx.compose.foundation.gestures.detectDragGestures
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.*
 import androidx.compose.runtime.*
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.drawWithCache
 import androidx.compose.ui.geometry.CornerRadius
@@ -34,10 +32,15 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.TextFieldValue
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import com.example.composetutorial.ui.theme.ComposeTutorialTheme
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import java.lang.Math.*
+import java.util.*
 import kotlin.math.atan2
 
 val displayMetrics = DisplayMetrics()
@@ -48,11 +51,24 @@ var rd = 1f
 var angle = 200.1
 var pic =R.raw.pic11
 val db = Firebase.firestore
+var picChoice = 99
+var time = System.currentTimeMillis()
+var timeMS = time.toString()
+var date = Date()
+var dateSTR = date.toString()
+var selectedItem1 = "בחר"
+var selectedItem2 = "בחר"
+var selectedItem3 = "בחר"
+val mAuth = FirebaseAuth.getInstance()
+val user: FirebaseUser? = mAuth.getCurrentUser()
+val email = user?.email
 
 class roundSelect : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val displayMetrics = DisplayMetrics()
+
+
         windowManager.defaultDisplay.getMetrics(displayMetrics)
         dns = displayMetrics.density
         width = (displayMetrics.widthPixels)/dns
@@ -177,14 +193,31 @@ fun Content() {
 }
 
 private fun getPic(angl: Double): Int {
-    // Log.d("RRubi",angl.toString())
     when (angl) {
-        in 270.1..342.0 -> pic =  R.raw.pic11
-        in 342.1..359.9 -> pic =  R.raw.pic22
-        in 0.0..54.0 -> pic =  R.raw.pic22
-        in 54.1..126.0 -> pic =  R.raw.pic33
-        in 126.1..198.0 -> pic =  R.raw.pic44
-        in 198.1..270.0 -> pic =  R.raw.pic55
+        in 270.1..342.0 -> {
+            pic =  R.raw.pic11
+            picChoice=1
+        }
+        in 342.1..359.9 -> {
+            pic = R.raw.pic22
+            picChoice=2
+        }
+        in 0.0..54.0 -> {
+            pic = R.raw.pic22
+            picChoice=2
+        }
+        in 54.1..126.0 -> {
+            pic =  R.raw.pic33
+            picChoice=3
+        }
+        in 126.1..198.0 -> {
+            pic =  R.raw.pic44
+            picChoice=4
+        }
+        in 198.1..270.0 -> {
+            pic =  R.raw.pic55
+            picChoice=5
+        }
         else -> print("none of the above")
     }
     return pic
@@ -243,7 +276,7 @@ fun MyDB1() {
     val listItems = arrayOf("בחר","אהבה","אושר","שמחה","נעימות","אמון","בטחון","גאווה","נינוחות","יציבות","התרגשות","סלחנות","חמלה","אכפתיות","רוממות רוח","פיוס","אדיבות","אמפטיה","מוצלחות","סיפוק","הישג","עליונות","כבוד","עונג","רעננות","נאמנות","הכרת תודה","אינטימיות","תקווה","השראה","הצלחה","סקרנות","אומץ","חיבה","נדיבות","איפוק","שלווה")
     val contextForToast = LocalContext.current.applicationContext
     var expanded by remember {mutableStateOf(false)} // state of the menu
-    var selectedItem by remember {mutableStateOf(listItems[0])} // remember the selected item
+    selectedItem1 by remember {mutableStateOf(listItems[0])} // remember the selected item
     // box
     ExposedDropdownMenuBox(
         expanded = expanded,
@@ -254,7 +287,7 @@ fun MyDB1() {
     ) {
         // text field
         TextField(
-            value = selectedItem,
+            value = selectedItem1,
             onValueChange = {},
             readOnly = true,
             label = { Text(text = "סל חיובי") },
@@ -275,7 +308,7 @@ fun MyDB1() {
             listItems.forEach { selectedOption ->
                 // menu item
                 DropdownMenuItem(onClick = {
-                    selectedItem = selectedOption
+                    selectedItem1 = selectedOption
                     Toast.makeText(contextForToast, selectedOption, Toast.LENGTH_SHORT).show()
                     expanded = false
                 }) {
@@ -284,6 +317,10 @@ fun MyDB1() {
             }
         }
     }
+}
+
+private infix fun String.by(remember: MutableState<String>) {
+
 }
 
 
@@ -296,7 +333,7 @@ fun MyDB2() {
     val listItems = arrayOf("בחר","פעלתנות","שחרור","זיכוך","חופש","נחרצות","להיטות","תעוזה","מסוגלות","ערנות","התרגשות","ספקנות","מחויבות","אדישות","אפתיה","ניתוק","אטימות","קפדנות")
     val contextForToast = LocalContext.current.applicationContext
     var expanded by remember {mutableStateOf(false)} // state of the menu
-    var selectedItem by remember {mutableStateOf(listItems[0])} // remember the selected item
+    selectedItem2 by remember {mutableStateOf(listItems[0])} // remember the selected item
     // box
     ExposedDropdownMenuBox(
         expanded = expanded,
@@ -307,7 +344,7 @@ fun MyDB2() {
     ) {
         // text field
         TextField(
-            value = selectedItem,
+            value = selectedItem2,
             onValueChange = {},
             readOnly = true,
             label = { Text(text = "סל נייטרלי") },
@@ -328,7 +365,7 @@ fun MyDB2() {
             listItems.forEach { selectedOption ->
                 // menu item
                 DropdownMenuItem(onClick = {
-                    selectedItem = selectedOption
+                    selectedItem2 = selectedOption
                     Toast.makeText(contextForToast, selectedOption, Toast.LENGTH_SHORT).show()
                     expanded = false
                 }) {
@@ -349,7 +386,7 @@ fun MyDB3() {
     val listItems = arrayOf("בחר","פחד","לחץ","עצב","כעס","שנאה","קנאה","עקצוץ","גועל","בוז","דיכאון","בגידה","אכזבה","התנגדות","זיעה","רעד","גירוד","גל קור","גל חום","עוינות","ציניות","זלזול","חוסר איזון","עצבנות","עייפות","דחייה","נטישה","פספוס – החמצה","חוסר ערך","דאגה","בלבול","תסכול","בדידות","מועקה","חוסר וודאות","קורבנות","מרירות")
     val contextForToast = LocalContext.current.applicationContext
     var expanded by remember {mutableStateOf(false)} // state of the menu
-    var selectedItem by remember {mutableStateOf(listItems[0])} // remember the selected item
+    selectedItem3 by remember {mutableStateOf(listItems[0])} // remember the selected item
     // box
     ExposedDropdownMenuBox(
         expanded = expanded,
@@ -360,7 +397,7 @@ fun MyDB3() {
     ) {
         // text field
         TextField(
-            value = selectedItem,
+            value = selectedItem3,
             onValueChange = {},
             readOnly = true,
             label = { Text(text = "סל שלילי") },
@@ -381,7 +418,7 @@ fun MyDB3() {
             listItems.forEach { selectedOption ->
                 // menu item
                 DropdownMenuItem(onClick = {
-                    selectedItem = selectedOption
+                    selectedItem3 = selectedOption
                     Toast.makeText(contextForToast, selectedOption, Toast.LENGTH_SHORT).show()
                     expanded = false
                 }) {
@@ -404,20 +441,28 @@ fun sendButton() {
     Button(
         modifier = btnModifier,
         onClick = {
+            Log.d("RRubi", "button click ")
 
-            val user = hashMapOf(
-                "first" to "Ada",
-                "last" to "Lovelace",
-                "born" to 1815
+            val notificationFB = hashMapOf(
+                "picChoice" to picChoice,
+                "dateTime" to dateSTR,
+                "timeMS" to timeMS,
+                "positiveWord" to selectedItem1,
+                "neutralWord" to selectedItem2,
+                "negativeWord" to selectedItem3,
             )
-            db.collection("users")
-                .add(user)
-                .addOnSuccessListener { documentReference ->
-                    Log.d("RRubi", "DocumentSnapshot added with ID: ${documentReference.id}")
-                }
-                .addOnFailureListener { e ->
-                    Log.w("RRubi", "Error adding document", e)
-                }
+            if (email != null) {
+                db.collection ("users").document(email)
+                    .collection("notificationFB").document(dateSTR)
+                    .set(notificationFB)
+                    //.add(notificationFB)
+                    .addOnSuccessListener { documentReference ->
+                        Log.d("RRubi", "DocumentSnapshot added ")
+                    }
+                    .addOnFailureListener { e ->
+                        Log.w("RRubi", "Error adding document", e)
+                    }
+            }
             //your onclick code here
         }) {
         Text(text = "שלח")
