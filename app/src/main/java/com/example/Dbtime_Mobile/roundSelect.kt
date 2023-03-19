@@ -1,7 +1,5 @@
 package com.example.Dbtime_Mobile
 
-//import com.example.Dbtime_Mobile.values.themesKT.roundSelect
-//import com.example.composetutorial.ui.theme.ComposeTutorialTheme
 import android.os.Bundle
 import android.util.DisplayMetrics
 import android.util.Log
@@ -31,7 +29,6 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.composetutorial.ui.theme.ComposeTutorialTheme
@@ -232,7 +229,7 @@ private fun getRotationAngle(currentPosition: Offset, center: Offset): Double {
     }
     return angle
 }
-
+/*
 @Composable
 fun MessageCard(msg: String) {
     Column {
@@ -251,6 +248,8 @@ fun SimpleTextField() {
         }
     )
 }
+
+ */
 
 @Preview
 @Composable
@@ -323,7 +322,6 @@ private infix fun String.by(remember: MutableState<String>) {
 
 }
 
-
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun MyDB2() {
@@ -375,7 +373,6 @@ fun MyDB2() {
         }
     }
 }
-
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
@@ -431,18 +428,18 @@ fun MyDB3() {
 
 @Composable
 fun sendButton() {
+    var cntx = LocalContext.current.applicationContext
     val btnModifier = Modifier
         .offset(y = ((height / 2) + rd*2.2).dp, x = (width/1.4).dp)
-        //.size((width/4).dp)
         .height((width/6).dp)
         .width((width/4).dp)
         .clip(CircleShape)
+      //  .alpha(1f)
 
     Button(
         modifier = btnModifier,
         onClick = {
-            Log.d("RRubi", "button click ")
-
+          //  btnModifier. alpha(0f)
             val notificationFB = hashMapOf(
                 "picChoice" to picChoice,
                 "dateTime" to dateSTR,
@@ -463,7 +460,11 @@ fun sendButton() {
                         Log.w("RRubi", "Error adding document", e)
                     }
             }
-            //your onclick code here
+            Toast.makeText(cntx, "שולח...", Toast.LENGTH_SHORT).show()
+            Thread.sleep(3_000)
+            System.exit(0)
+
+
         }) {
         Text(text = "שלח")
     }
