@@ -8,10 +8,12 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.*
 import androidx.compose.foundation.gestures.detectDragGestures
+import androidx.compose.foundation.interaction.DragInteraction
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.*
 import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.drawWithCache
@@ -27,6 +29,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -242,14 +245,14 @@ fun PreviewContent() {
     ComposeTutorialTheme {
         Surface {
             Content()
-            secondCanvas()
+          //  secondCanvas()
            // MyDB1()
-            MyDB2()
-            MyDB3()
+          //  MyDB2()
+          //  MyDB3()
             sendButton()
-            Slider1()
-            Slider2()
-            Slider3()
+          //  Slider1()
+          //  Slider2()
+          //  Slider3()
 
         }
     }
@@ -468,7 +471,7 @@ fun sendButton() {
 @Composable
 fun MyDB4() {
     val dropDounModifier = Modifier
-        .offset(y = (110).dp, x = 8.dp)
+        .offset(y = 8.dp, x = (8).dp)
         .size((width/1.6).dp)
         .height((rd/3).dp)
     val listItems = arrayOf("בחר","אהבה","אושר","שמחה","נעימות","אמון","בטחון","גאווה","נינוחות","יציבות","התרגשות","סלחנות","חמלה","אכפתיות","רוממות רוח","פיוס","אדיבות","אמפטיה","מוצלחות","סיפוק","הישג","עליונות","כבוד","עונג","רעננות","נאמנות","הכרת תודה","אינטימיות","תקווה","השראה","הצלחה","סקרנות","אומץ","חיבה","נדיבות","איפוק","שלווה")
@@ -576,18 +579,50 @@ fun Slider3(
 }
 
 @Composable
+fun Slider4(
+    ModifierSlyder: Modifier =   Modifier
+       .offset(y = 10.dp, x = 30.dp)
+       // .size((50).dp)
+
+        .width(width = 100.dp)
+        .height(height = 35.dp)
+
+) {
+    var sliderPosition by remember { mutableStateOf(0f) }
+    wordLevel1 = sliderPosition.toString().substring(0,sliderPosition.toString().indexOf("."))
+    Text(modifier = ModifierSlyder, text = "      "+wordLevel1)
+    Slider(
+        modifier = ModifierSlyder,
+        valueRange = 1f..10f,
+        value = sliderPosition,
+        onValueChange = { sliderPosition = it })
+}
+
+
+@Composable
 fun secondCanvas() {
     val paint = Paint().asFrameworkPaint().apply {
         textSize = 40f
         textAlign = android.graphics.Paint.Align.LEFT
     }
     Column {
+        text1To10()
+        Row {
+            var rowModifier = Modifier
+                .fillMaxWidth()
+                .height(80.dp)
+            MyDB4()
+            Column {
+            Slider4()
+            }
+        }
+
         Canvas(
             modifier = Modifier
-                .offset(y = ((height / 1.85)).dp, x = 0.dp)
+                .offset(y = (0).dp, x = 0.dp)
                 .width((width).dp)
                 .height((height / 2.15).dp)
-                .padding(8.dp)
+                .padding(4.dp)
                 .drawWithCache {
                     val brush = Brush.linearGradient(
                         listOf(
@@ -607,6 +642,16 @@ fun secondCanvas() {
                 it.nativeCanvas.drawText("1-קצת, 10-הרבה", 35f, 80f, paint)
             }
         }
-        MyDB4()
+    //   MyDB4()
     }
+}
+
+@Composable
+fun text1To10() {
+    Text(
+        "1-קצת...10-הרבה",
+        textAlign = TextAlign.Left,
+        fontSize = 10.sp,
+        modifier = Modifier.width((width-10).dp)
+    )
 }
