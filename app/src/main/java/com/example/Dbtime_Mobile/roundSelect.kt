@@ -11,7 +11,10 @@ import androidx.compose.foundation.gestures.detectDragGestures
 import androidx.compose.foundation.interaction.DragInteraction
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
+import androidx.compose.material.MaterialTheme.colors
+import androidx.compose.material3.DividerDefaults.color
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -71,7 +74,6 @@ class roundSelect : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val displayMetrics = DisplayMetrics()
-
 
         windowManager.defaultDisplay.getMetrics(displayMetrics)
         dns = displayMetrics.density
@@ -245,15 +247,6 @@ fun PreviewContent() {
     ComposeTutorialTheme {
         Surface {
             Content()
-          //  secondCanvas()
-           // MyDB1()
-          //  MyDB2()
-          //  MyDB3()
-            sendButton()
-          //  Slider1()
-          //  Slider2()
-          //  Slider3()
-
         }
     }
 }
@@ -262,14 +255,13 @@ fun PreviewContent() {
 @Composable
 fun MyDB1() {
     val dropDounModifier = Modifier
-        .offset(y = ((height / 2) + rd*0.6).dp, x = 8.dp)
-        .size((width/1.6).dp)
-        .height((rd/3).dp)
+        .offset(y = 8.dp, x = (8).dp)
+        .width((width/1.6).dp)
+        .height((60).dp)
     val listItems = arrayOf("בחר","אהבה","אושר","שמחה","נעימות","אמון","בטחון","גאווה","נינוחות","יציבות","התרגשות","סלחנות","חמלה","אכפתיות","רוממות רוח","פיוס","אדיבות","אמפטיה","מוצלחות","סיפוק","הישג","עליונות","כבוד","עונג","רעננות","נאמנות","הכרת תודה","אינטימיות","תקווה","השראה","הצלחה","סקרנות","אומץ","חיבה","נדיבות","איפוק","שלווה")
     val contextForToast = LocalContext.current.applicationContext
     var expanded by remember {mutableStateOf(false)} // state of the menu
     selectedItem1 by remember {mutableStateOf(listItems[0])} // remember the selected item
-    // box
     ExposedDropdownMenuBox(
         expanded = expanded,
         modifier = dropDounModifier,
@@ -277,7 +269,6 @@ fun MyDB1() {
             expanded = !expanded
         }
     ) {
-        // text field
         TextField(
             value = selectedItem1,
             onValueChange = {},
@@ -290,19 +281,13 @@ fun MyDB1() {
             },
             colors = ExposedDropdownMenuDefaults.textFieldColors()
         )
-        // menu
         ExposedDropdownMenu(
             expanded = expanded,
             onDismissRequest = { expanded = false }
         ) {
-            // this is a column scope
-            // all the items are added vertically
             listItems.forEach { selectedOption ->
-                // menu item
                 DropdownMenuItem(onClick = {
                     selectedItem1 = selectedOption
-
-
                     Toast.makeText(contextForToast, selectedOption, Toast.LENGTH_SHORT).show()
                     expanded = false
                 }) {
@@ -321,13 +306,13 @@ private infix fun String.by(remember: MutableState<String>) {
 @Composable
 fun MyDB2() {
     val dropDounModifier = Modifier
-        .offset(y = ((height / 2) + rd*1.1).dp, x = 8.dp)
-        .size((width/1.6).dp)
+        .offset(y = 8.dp, x = (8).dp)
+        .width((width/1.6).dp)
+        .height((60).dp)
     val listItems = arrayOf("בחר","פעלתנות","שחרור","זיכוך","חופש","נחרצות","להיטות","תעוזה","מסוגלות","ערנות","התרגשות","ספקנות","מחויבות","אדישות","אפתיה","ניתוק","אטימות","קפדנות")
     val contextForToast = LocalContext.current.applicationContext
     var expanded by remember {mutableStateOf(false)} // state of the menu
     selectedItem2 by remember {mutableStateOf(listItems[0])} // remember the selected item
-    // box
     ExposedDropdownMenuBox(
         expanded = expanded,
         modifier = dropDounModifier,
@@ -335,7 +320,6 @@ fun MyDB2() {
             expanded = !expanded
         }
     ) {
-        // text field
         TextField(
             value = selectedItem2,
             onValueChange = {},
@@ -348,15 +332,11 @@ fun MyDB2() {
             },
             colors = ExposedDropdownMenuDefaults.textFieldColors()
         )
-        // menu
         ExposedDropdownMenu(
             expanded = expanded,
             onDismissRequest = { expanded = false }
         ) {
-            // this is a column scope
-            // all the items are added vertically
             listItems.forEach { selectedOption ->
-                // menu item
                 DropdownMenuItem(onClick = {
                     selectedItem2 = selectedOption
                     Toast.makeText(contextForToast, selectedOption, Toast.LENGTH_SHORT).show()
@@ -373,13 +353,14 @@ fun MyDB2() {
 @Composable
 fun MyDB3() {
     val dropDounModifier = Modifier
-        .offset(y = ((height / 2) + rd*1.6).dp, x = 8.dp)
-        .size((width/1.6).dp)
+       // .offset(y = ((height / 2) + rd*1.6).dp, x = 8.dp)
+        .offset(y = 8.dp, x = (8).dp)
+        .width((width/1.6).dp)
+        .height((60).dp)
     val listItems = arrayOf("בחר","פחד","לחץ","עצב","כעס","שנאה","קנאה","עקצוץ","גועל","בוז","דיכאון","בגידה","אכזבה","התנגדות","זיעה","רעד","גירוד","גל קור","גל חום","עוינות","ציניות","זלזול","חוסר איזון","עצבנות","עייפות","דחייה","נטישה","פספוס – החמצה","חוסר ערך","דאגה","בלבול","תסכול","בדידות","מועקה","חוסר וודאות","קורבנות","מרירות")
     val contextForToast = LocalContext.current.applicationContext
     var expanded by remember {mutableStateOf(false)} // state of the menu
     selectedItem3 by remember {mutableStateOf(listItems[0])} // remember the selected item
-    // box
     ExposedDropdownMenuBox(
         expanded = expanded,
         modifier = dropDounModifier,
@@ -400,15 +381,11 @@ fun MyDB3() {
             },
             colors = ExposedDropdownMenuDefaults.textFieldColors()
         )
-        // menu
         ExposedDropdownMenu(
             expanded = expanded,
             onDismissRequest = { expanded = false }
         ) {
-            // this is a column scope
-            // all the items are added vertically
             listItems.forEach { selectedOption ->
-                // menu item
                 DropdownMenuItem(onClick = {
                     selectedItem3 = selectedOption
                     Toast.makeText(contextForToast, selectedOption, Toast.LENGTH_SHORT).show()
@@ -425,7 +402,7 @@ fun MyDB3() {
 fun sendButton() {
     var cntx = LocalContext.current.applicationContext
     val btnModifier = Modifier
-        .offset(y = ((height / 2) + rd*2.2).dp, x = (width/4).dp)
+        .offset(y = 18.dp, x = (width/4).dp)
         .height((width/6).dp)
         .width((width/2).dp)
         .clip(CircleShape)
@@ -442,13 +419,11 @@ fun sendButton() {
                 "positiveWordLevel" to wordLevel1,
                 "neutralWordLevel" to wordLevel2,
                 "negativeWordLevel" to wordLevel3,
-
             )
             if (email != null) {
                 db.collection ("users").document(email)
                     .collection("notificationFB").document(dateSTR)
                     .set(notificationFB)
-                    //.add(notificationFB)
                     .addOnSuccessListener { documentReference ->
                         Log.d("RRubi", "DocumentSnapshot added ")
                     }
@@ -459,75 +434,17 @@ fun sendButton() {
             Toast.makeText(cntx, "שולח...", Toast.LENGTH_SHORT).show()
             Thread.sleep(3_000)
             System.exit(0)
-
-
         }) {
         Text(text = "שלח")
-    }
-}
-
-
-@OptIn(ExperimentalMaterialApi::class)
-@Composable
-fun MyDB4() {
-    val dropDounModifier = Modifier
-        .offset(y = 8.dp, x = (8).dp)
-        .size((width/1.6).dp)
-        .height((rd/3).dp)
-    val listItems = arrayOf("בחר","אהבה","אושר","שמחה","נעימות","אמון","בטחון","גאווה","נינוחות","יציבות","התרגשות","סלחנות","חמלה","אכפתיות","רוממות רוח","פיוס","אדיבות","אמפטיה","מוצלחות","סיפוק","הישג","עליונות","כבוד","עונג","רעננות","נאמנות","הכרת תודה","אינטימיות","תקווה","השראה","הצלחה","סקרנות","אומץ","חיבה","נדיבות","איפוק","שלווה")
-    val contextForToast = LocalContext.current.applicationContext
-    var expanded by remember {mutableStateOf(false)} // state of the menu
-    selectedItem1 by remember {mutableStateOf(listItems[0])} // remember the selected item
-    // box
-    ExposedDropdownMenuBox(
-        expanded = expanded,
-        modifier = dropDounModifier,
-        onExpandedChange = {
-            expanded = !expanded
-        }
-    ) {
-        // text field
-        TextField(
-            value = selectedItem1,
-            onValueChange = {},
-            readOnly = true,
-            label = { Text(text = "סל חיובי") },
-            trailingIcon = {
-                ExposedDropdownMenuDefaults.TrailingIcon(
-                    expanded = expanded
-                )
-            },
-            colors = ExposedDropdownMenuDefaults.textFieldColors()
-        )
-        // menu
-        ExposedDropdownMenu(
-            expanded = expanded,
-            onDismissRequest = { expanded = false }
-        ) {
-            // this is a column scope
-            // all the items are added vertically
-            listItems.forEach { selectedOption ->
-                // menu item
-                DropdownMenuItem(onClick = {
-                    selectedItem1 = selectedOption
-
-
-                    Toast.makeText(contextForToast, selectedOption, Toast.LENGTH_SHORT).show()
-                    expanded = false
-                }) {
-                    Text(text = selectedOption)
-                }
-            }
-        }
     }
 }
 
 @Composable
 fun Slider1(
       ModifierSlyder: Modifier =   Modifier
-        .offset(y = ((height / 2) + rd*0.6).dp, x = (width/1.5).dp)
-        .size((width/3.5).dp)
-        .height((rd/3).dp)
+        .offset(y = 10.dp, x = 30.dp)
+        .width(width = 100.dp)
+        .height(height = 35.dp)
 ) {
     var sliderPosition by remember { mutableStateOf(0f) }
     wordLevel1 = sliderPosition.toString().substring(0,sliderPosition.toString().indexOf("."))
@@ -536,7 +453,6 @@ fun Slider1(
         modifier = ModifierSlyder,
         valueRange = 1f..10f,
         value = sliderPosition,
-      //  value = roundToInt(sliderPosition*10),
         onValueChange = { sliderPosition = it })
 }
 
@@ -544,9 +460,9 @@ fun Slider1(
 @Composable
 fun Slider2(
     ModifierSlyder: Modifier =   Modifier
-        .offset(y = ((height / 2) + rd*1.1).dp, x = (width/1.5).dp)
-        .size((width/3.5).dp)
-        .height((rd/3).dp)
+        .offset(y = 10.dp, x = 30.dp)
+        .width(width = 100.dp)
+        .height(height = 35.dp)
 ) {
     var sliderPosition by remember { mutableStateOf(0f) }
     wordLevel2 = sliderPosition.toString().substring(0,sliderPosition.toString().indexOf("."))
@@ -555,17 +471,15 @@ fun Slider2(
         modifier = ModifierSlyder,
         valueRange = 1f..10f,
         value = sliderPosition,
-        //  value = roundToInt(sliderPosition*10),
         onValueChange = { sliderPosition = it })
 }
-
 
 @Composable
 fun Slider3(
     ModifierSlyder: Modifier =   Modifier
-        .offset(y = ((height / 2) + rd*1.6).dp, x = (width/1.5).dp)
-        .size((width/3.5).dp)
-        .height((rd/3).dp)
+        .offset(y = 10.dp, x = 30.dp)
+        .width(width = 100.dp)
+        .height(height = 35.dp)
 ) {
     var sliderPosition by remember { mutableStateOf(0f) }
     wordLevel3 = sliderPosition.toString().substring(0,sliderPosition.toString().indexOf("."))
@@ -574,30 +488,8 @@ fun Slider3(
         modifier = ModifierSlyder,
         valueRange = 1f..10f,
         value = sliderPosition,
-        //  value = roundToInt(sliderPosition*10),
         onValueChange = { sliderPosition = it })
 }
-
-@Composable
-fun Slider4(
-    ModifierSlyder: Modifier =   Modifier
-       .offset(y = 10.dp, x = 30.dp)
-       // .size((50).dp)
-
-        .width(width = 100.dp)
-        .height(height = 35.dp)
-
-) {
-    var sliderPosition by remember { mutableStateOf(0f) }
-    wordLevel1 = sliderPosition.toString().substring(0,sliderPosition.toString().indexOf("."))
-    Text(modifier = ModifierSlyder, text = "      "+wordLevel1)
-    Slider(
-        modifier = ModifierSlyder,
-        valueRange = 1f..10f,
-        value = sliderPosition,
-        onValueChange = { sliderPosition = it })
-}
-
 
 @Composable
 fun secondCanvas() {
@@ -605,44 +497,39 @@ fun secondCanvas() {
         textSize = 40f
         textAlign = android.graphics.Paint.Align.LEFT
     }
-    Column {
-        text1To10()
-        Row {
-            var rowModifier = Modifier
-                .fillMaxWidth()
-                .height(80.dp)
-            MyDB4()
-            Column {
-            Slider4()
-            }
-        }
-
-        Canvas(
-            modifier = Modifier
-                .offset(y = (0).dp, x = 0.dp)
-                .width((width).dp)
-                .height((height / 2.15).dp)
-                .padding(4.dp)
-                .drawWithCache {
-                    val brush = Brush.linearGradient(
-                        listOf(
-                            Color(0xFF25BFEA),
-                            Color(0xFF06B7E9)
-                        )
-                    )
-                    onDrawBehind {
-                        drawRoundRect(
-                            brush,
-                            cornerRadius = CornerRadius(10.dp.toPx())
-                        )
-                    }
+    Box(
+        modifier = Modifier
+            .offset(y = (0).dp, x = 0.dp)
+            .width((width).dp)
+            .height((height / 2).dp)
+            .padding(8.dp)
+            .clip( RoundedCornerShape(8.dp))
+            .background(Color(0xFF25BFEA))
+    ) {
+        Column {
+            text1To10()
+            Row {
+                MyDB1()
+                Column {
+                   Slider1()
                 }
-        ) {
-            drawIntoCanvas {
-                it.nativeCanvas.drawText("1-קצת, 10-הרבה", 35f, 80f, paint)
+            }
+            Row {
+                MyDB2()
+                Column {
+                    Slider2()
+                }
+            }
+            Row {
+                MyDB3()
+                Column {
+                    Slider3()
+                }
+            }
+            Row {
+                sendButton()
             }
         }
-    //   MyDB4()
     }
 }
 
