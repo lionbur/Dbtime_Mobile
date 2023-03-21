@@ -137,6 +137,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        findViewById(R.id.imageView8).setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent myIntent = new Intent(MainActivity.this, MainActivity11.class);
+                MainActivity.this.startActivity(myIntent);
+            }
+        });
+
         findViewById(R.id.imageView2).setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Snackbar sb = make(view, "מכאן נעבור למדידת דופק ומצב רוח", LENGTH_SHORT).setAnchorView(R.id.imageView2);
