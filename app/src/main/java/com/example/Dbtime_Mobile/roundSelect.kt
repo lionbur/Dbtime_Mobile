@@ -177,7 +177,7 @@ fun Content() {
             size = Size(radius * 2, radius * 2)
         )
         drawIntoCanvas {
-            it.nativeCanvas.drawText("מה ההרגשה כרגע בגוף?", 250f, -140f, paint)
+            it.nativeCanvas.drawText("מה ההרגשה כרגע בגוף?", 250f, -140f,paint)
         }
 
         drawCircle(color = Color.Blue, center = handleCenter, radius = 60f)

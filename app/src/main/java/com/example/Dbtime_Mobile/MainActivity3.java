@@ -16,9 +16,13 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -36,7 +40,10 @@ public class MainActivity3 extends AppCompatActivity {
     public Long nowMS;
     public Long dif;
     public Long applesCount;
-    public TextView aplsCount;
+    public TextView aplsCount, motivationAvg;
+    public Double avrg = 0.0;
+    public Integer indx = 0;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,13 +60,13 @@ public class MainActivity3 extends AppCompatActivity {
         link.setMovementMethod(LinkMovementMethod.getInstance());
 
         aplsCount = (TextView) findViewById(R.id.textView18);
+        motivationAvg = (TextView) findViewById(R.id.textView138);
         calculateApples();
+        calculateMotivation();
 
         findViewById(R.id.textView9).setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent myIntent = new Intent(MainActivity3.this, MainActivity7.class);
-              //  myIntent.putExtra("from",from);
-              //  myIntent.putExtra("target",targets);
                 MainActivity3.this.startActivity(myIntent);
             }
         });
@@ -103,6 +110,32 @@ public class MainActivity3 extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    public void calculateMotivation(){
+        String last7days = String.valueOf((nowMS-7*24*60*60*1000));
+        CollectionReference userMotivation = db.collection("users").document(email)
+                .collection("motivationLevel");
+       userMotivation.whereGreaterThan("timeMS", last7days)
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            Log.d("RRubi", "#2");
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                               String t = (String) document.getData().get("motivationLevel");
+                                avrg = avrg+valueOf(t);
+                                indx++;
+                                Log.d("RRubi", document.getId() + " avrg " + avrg+ " indx: "+indx);
+                            }
+                            motivationAvg.setText(String.valueOf(avrg/indx));
+                        } else {
+                            Log.d("RRubi", "Error getting documents: ", task.getException());
+                        }
+                    }
+                });
+
     }
 
 }
