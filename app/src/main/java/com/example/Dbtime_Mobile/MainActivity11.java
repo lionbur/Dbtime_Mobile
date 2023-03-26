@@ -132,10 +132,6 @@ public class MainActivity11 extends AppCompatActivity {
                                 Log.d("Rubi", "Error writing document", e);
                             }
                         });
-
-
-
-
             }
         });
 
