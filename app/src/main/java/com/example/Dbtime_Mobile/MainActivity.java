@@ -1,6 +1,5 @@
 package com.example.Dbtime_Mobile;
 
-import static com.google.android.material.snackbar.Snackbar.LENGTH_SHORT;
 import static com.google.android.material.snackbar.Snackbar.make;
 import android.annotation.SuppressLint;
 import android.app.NotificationChannel;
@@ -8,21 +7,19 @@ import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
 import android.media.MediaPlayer;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.text.method.LinkMovementMethod;
 import android.util.Log;
 import android.view.View;
-import android.widget.TextView;
+import android.widget.VideoView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationManagerCompat;
 import androidx.work.PeriodicWorkRequest;
 import androidx.work.WorkManager;
-import com.google.android.material.snackbar.Snackbar;
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -56,37 +53,20 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    View lo;
-
     @SuppressLint("ResourceType")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Integer hr = 12;
 
-        TextView link = (TextView) findViewById(R.id.hiperlink);
-        link.setMovementMethod(LinkMovementMethod.getInstance());
-
-        MediaPlayer ring= MediaPlayer.create(MainActivity.this,R.raw.sound);
+        MediaPlayer ring = MediaPlayer.create(MainActivity.this, R.raw.sound);
         ring.setLooping(true);
         ring.start();
 
-        OffsetTime offset = null;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            offset = OffsetTime.now();
-            hr = offset.getHour();
-        }
-
-        if(hr>6 && hr<19){
-            lo = findViewById(R.id.mainlot);
-            lo.setBackgroundResource(R.raw.day);
-        }
-
         createNotificationChannel();
 
-        Boolean isOpen = isNotificationChannelEnabled(MainActivity.this,"12");
-        Log.d("Rubi","Chanel Enabled = "+isOpen.toString());
+        Boolean isOpen = isNotificationChannelEnabled(MainActivity.this, "12");
+        Log.d("Rubi", "Chanel Enabled = " + isOpen.toString());
 
         WorkManager.getInstance(this).cancelAllWorkByTag("cleanup");
         WorkManager.getInstance(this).cancelAllWork();
@@ -97,12 +77,16 @@ public class MainActivity extends AppCompatActivity {
         }
         WorkManager.getInstance(this).enqueue(PSN);
 
+        initEventHandlers();
+    }
+
+    void initEventHandlers() {
         findViewById(R.id.imageButton).setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-
-                Intent myIntent = new Intent(MainActivity.this, MainActivity9.class);
-                //myIntent.putExtra("key", value); //Optional parameters
-                MainActivity.this.startActivity(myIntent);
+                MainActivity.this.startActivity(
+                        new Intent(MainActivity.this, WebViewActivity.class)
+                            .putExtra("url", "https://www.thinglink.com/card/1472621679711617026")
+                );
             }
         });
 
@@ -116,15 +100,16 @@ public class MainActivity extends AppCompatActivity {
 
         findViewById(R.id.imageButton11).setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Uri uri = Uri.parse("https://poki.co.il/%D7%97%D7%A9%D7%99%D7%91%D7%94");
-                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-                startActivity(intent);
+                MainActivity.this.startActivity(
+                        new Intent(MainActivity.this, WebViewActivity.class)
+                                .putExtra("url", "https://poki.co.il/%D7%97%D7%A9%D7%99%D7%91%D7%94")
+                );
             }
         });
 
-        findViewById(R.id.imageButton9).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.btn_life_skills).setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Intent myIntent = new Intent(MainActivity.this, MainActivity4.class);
+                Intent myIntent = new Intent(MainActivity.this, SkillsIntroActivity.class);
                 //myIntent.putExtra("key", value); //Optional parameters
                 MainActivity.this.startActivity(myIntent);
             }
@@ -144,33 +129,38 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        findViewById(R.id.imageView2).setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                Snackbar sb = make(view, "מכאן נעבור למדידת דופק ומצב רוח", LENGTH_SHORT).setAnchorView(R.id.imageView2);
-                sb.show();
-               // Intent myIntent = new Intent(MainActivity.this, MainActivity3.class);
-                //myIntent.putExtra("key", value); //Optional parameters
-               // MainActivity.this.startActivity(myIntent);
-            }
-        });
-
-
         findViewById(R.id.test).setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Snackbar sb = make(view, "בדיקה למעגל בחירה", LENGTH_SHORT).setAnchorView(R.id.imageView2);
-                sb.show();
+                //Snackbar sb = make(view, "בדיקה למעגל בחירה", LENGTH_SHORT).setAnchorView(R.id.imageView2);
+                //sb.show();
                  Intent myIntent = new Intent(MainActivity.this, roundSelect.class);
                 //myIntent.putExtra("key", value); //Optional parameters
                  MainActivity.this.startActivity(myIntent);
             }
         });
-
-
-
-
-
     }
 
+    void initBackground() {
+        Integer hr = 12;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            OffsetTime offset = OffsetTime.now();
+            hr = offset.getHour();
+        }
+
+        VideoView bg = findViewById(R.id.main_bg);
+        Integer video = (hr > 6 && hr < 19)
+                ? R.raw.main_bg_day
+                : R.raw.main_bg_night;
+        bg.setVideoPath("android.resource://" + getPackageName() + "/" + video);
+        bg.start();
+
+        bg.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+            @Override
+            public void onPrepared(MediaPlayer mp) {
+                mp.setLooping(true);
+            }
+        });
+    }
     @Override
     public void onStart() {
         super.onStart();
@@ -181,7 +171,6 @@ public class MainActivity extends AppCompatActivity {
         } else {
             // No user is signed in
         }
-
-
+        initBackground();
     }
 }

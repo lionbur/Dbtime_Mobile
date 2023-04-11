@@ -41,9 +41,6 @@ public class MainActivity3 extends AppCompatActivity {
     public Long dif;
     public Long applesCount;
     public TextView aplsCount, motivationAvg;
-    public Double avrg = 0.0;
-    public Integer indx = 0;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,7 +91,8 @@ public class MainActivity3 extends AppCompatActivity {
                         targets = new ArrayList(document.getData().values());
                         targetsQuotaAsString = new ArrayList();
                         targetsList = new ArrayList();
-                       for(int i=0; i<from.size();i++) {
+
+                        for(int i=0; i<from.size();i++) {
                            currentTargetStartMS = valueOf((String) from.get(i));
                            dif = nowMS-currentTargetStartMS;
                            targetArr = (ArrayList) targets.get(i);
@@ -116,20 +114,26 @@ public class MainActivity3 extends AppCompatActivity {
         String last7days = String.valueOf((nowMS-7*24*60*60*1000));
         CollectionReference userMotivation = db.collection("users").document(email)
                 .collection("motivationLevel");
-       userMotivation.whereGreaterThan("timeMS", last7days)
+        userMotivation.whereGreaterThan("timeMS", last7days)
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
                             Log.d("RRubi", "#2");
+                            Double avrg = 0.0;
+                            Integer indx = 0;
                             for (QueryDocumentSnapshot document : task.getResult()) {
                                String t = (String) document.getData().get("motivationLevel");
                                 avrg = avrg+valueOf(t);
                                 indx++;
                                 Log.d("RRubi", document.getId() + " avrg " + avrg+ " indx: "+indx);
                             }
-                            motivationAvg.setText(String.valueOf(avrg/indx));
+                            if (indx > 0) {
+                                motivationAvg.setText(String.valueOf(avrg / indx));
+                            } else {
+                                motivationAvg.setText("אין מספיק נתונים");
+                            }
                         } else {
                             Log.d("RRubi", "Error getting documents: ", task.getException());
                         }

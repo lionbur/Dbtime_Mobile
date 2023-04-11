@@ -6,20 +6,7 @@
     android:layout_height="match_parent"
     android:background="@raw/wd"
     android:scaleX="1"
-    tools:context=".MainActivity4">
-
-    <TextView
-        android:id="@+id/hiperlink4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/hyperlink"
-        android:textColor="@color/white"
-        android:textSize="22dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.423"
-        app:layout_constraintStart_toStartOf="parent" />
-
+    tools:context=".SkillsIntroActivity">
 
 
     <TextView

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_gravity="right"
     android:background="@raw/pth"
     tools:context=".MainActivity3">
 
@@ -12,73 +13,71 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="52dp"
+        android:fontFamily="@font/ganclm_boldwebfont"
         android:text="ליעדים שלי"
         android:textColor="@color/greywhite"
         android:textSize="34sp"
         android:textStyle="bold"
-        android:fontFamily="@font/ganclm_boldwebfont"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
+
     <TextView
         android:id="@+id/textView16"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="238dp"
+        android:layout_width="55dp"
+        android:layout_height="17dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="24dp"
         android:fontFamily="@font/ganclm_boldwebfont"
         android:text=" יש לך "
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textDirection="rtl"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView7" />
 
     <TextView
         android:id="@+id/textView18"
-        android:layout_width="14dp"
+        android:layout_width="wrap_content"
         android:layout_height="19dp"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="238dp"
+        android:layout_marginEnd="8dp"
         android:fontFamily="@font/ganclm_boldwebfont"
         android:text="0"
-        app:layout_constraintStart_toEndOf="@+id/textView16"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textDirection="rtl"
+        app:layout_constraintEnd_toStartOf="@+id/textView16"
+        app:layout_constraintTop_toTopOf="@+id/textView16" />
 
     <TextView
         android:id="@+id/textView19"
-        android:layout_width="wrap_content"
+        android:layout_width="61dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="238dp"
-        android:text=" תפוחים "
+        android:layout_marginEnd="8dp"
         android:fontFamily="@font/ganclm_boldwebfont"
-        app:layout_constraintStart_toEndOf="@+id/textView18"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:text=" תפוחים "
+        android:textDirection="rtl"
+        app:layout_constraintEnd_toStartOf="@+id/textView18"
+        app:layout_constraintTop_toTopOf="@+id/textView18" />
 
 
     <TextView
         android:id="@+id/textView26"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="13dp"
+        android:layout_marginTop="12dp"
         android:fontFamily="@font/ganclm_boldwebfont"
-        android:text=" מוטיבציה ממוצע 7 ימים "
-        app:layout_constraintStart_toStartOf="parent"
+        android:text="ממוצע מוטיבציה של  7 ימים:"
+        android:textDirection="rtl"
+        app:layout_constraintEnd_toEndOf="@+id/textView16"
         app:layout_constraintTop_toBottomOf="@+id/textView16" />
-
 
     <TextView
         android:id="@+id/textView138"
-        android:layout_width="33dp"
+        android:layout_width="wrap_content"
         android:layout_height="23dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="13dp"
+        android:layout_marginEnd="8dp"
         android:fontFamily="@font/ganclm_boldwebfont"
         android:text="0"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.1"
-        app:layout_constraintStart_toEndOf="@+id/textView26"
-        app:layout_constraintTop_toBottomOf="@+id/textView16" />
+        app:layout_constraintEnd_toStartOf="@+id/textView26"
+        app:layout_constraintTop_toTopOf="@+id/textView26" />
 
     <ImageView
         android:id="@+id/imageView7"

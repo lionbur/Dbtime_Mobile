@@ -8,21 +8,18 @@ import android.os.Handler;
 import android.text.method.LinkMovementMethod;
 import android.widget.TextView;
 
-public class MainActivity4 extends AppCompatActivity {
+public class SkillsIntroActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main4);
 
-        TextView link = (TextView) findViewById(R.id.hiperlink4);
-        link.setMovementMethod(LinkMovementMethod.getInstance());
-
         (new Handler()).postDelayed(this::delay, 3000);
     }
 
     private void delay() {
-        Intent i = new Intent(MainActivity4.this, MainActivity5.class);
+        Intent i = new Intent(SkillsIntroActivity.this, MainActivity5.class);
         startActivity(i);
     }
 }

@@ -7,6 +7,16 @@
     android:id="@+id/bg"
     tools:context=".MainActivity11">
 
+    <VideoView
+        android:id="@+id/videoBackground"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="@+id/button9"
+        app:layout_constraintEnd_toEndOf="@+id/seekBar2"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/seekBar2" />
+
     <SeekBar
         android:id="@+id/seekBar2"
         style="@style/Widget.AppCompat.SeekBar"
@@ -14,9 +24,9 @@
         android:layout_height="match_parent"
         android:max="100"
         android:progress="1"
+        android:progressDrawable="@drawable/progress2"
         android:rotation="90"
         android:thumb="@raw/uk"
-        android:progressDrawable="@drawable/progress2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -26,8 +36,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="104dp"
-        android:text="1"
-        android:textColor="#000000"
+        android:shadowColor="@color/black"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="20"
+        android:text="100"
+        android:textColor="@color/white"
         android:textSize="30dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/seekBar2"
@@ -42,8 +56,12 @@
         android:layout_marginTop="48dp"
         android:fontFamily="@font/ganclm_boldwebfont"
         android:gravity="center"
+        android:shadowColor="@color/black"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="25"
         android:text="מה המוטיבציה שלך היום?"
-        android:textColor="#000000"
+        android:textColor="@color/white"
         android:textSize="28dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"

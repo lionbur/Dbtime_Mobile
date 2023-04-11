@@ -20,6 +20,12 @@
         android:theme="@style/Theme.V1"
         tools:targetApi="31">
         <activity
+            android:name=".MindfullCardsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MindfullIntroActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity11"
             android:exported="false" />
         <activity
@@ -50,7 +56,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity9"
+            android:name=".WebViewActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -129,7 +135,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".MainActivity4"
+            android:name=".SkillsIntroActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

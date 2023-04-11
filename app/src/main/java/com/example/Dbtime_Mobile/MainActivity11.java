@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.VideoView;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -40,51 +41,22 @@ public class MainActivity11 extends AppCompatActivity {
         setContentView(R.layout.activity_main11);
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-        MediaPlayer ring= MediaPlayer.create(MainActivity11.this,R.raw.mot_sound);
+        MediaPlayer ring = MediaPlayer.create(MainActivity11.this, R.raw.mot_sound);
         ring.setLooping(true);
         ring.start();
-
-        Calendar calendar = Calendar.getInstance();
-        int day = calendar.get(Calendar.DAY_OF_WEEK);
 
         mAuth = FirebaseAuth.getInstance();
         FirebaseUser user = mAuth.getCurrentUser();
         String email = user.getEmail();
 
-        long time= System.currentTimeMillis();
+        long time = System.currentTimeMillis();
         String timeMS = String.valueOf(time);
         Date date = new Date();
         String dateSTR = date.toString();
         Button saveBT = findViewById(R.id.button9);
 
-        View lo = findViewById(R.id.bg);
         SeekBar sb1 = (SeekBar) findViewById(R.id.seekBar2);
         TextView tv = (TextView) findViewById(R.id.textView32);
-
-        switch (day) {
-            case Calendar.SUNDAY:
-                lo.setBackgroundResource(R.raw.mot_pic_1);
-                break;
-            case Calendar.MONDAY:
-                lo.setBackgroundResource(R.raw.mot_pic_2);
-                break;
-            case Calendar.TUESDAY:
-                lo.setBackgroundResource(R.raw.mot_pic_3);
-                break;
-            case Calendar.WEDNESDAY:
-                lo.setBackgroundResource(R.raw.mot_pic_4);
-                break;
-            case Calendar.THURSDAY:
-                lo.setBackgroundResource(R.raw.mot_pic_5);
-                break;
-            case Calendar.FRIDAY:
-                lo.setBackgroundResource(R.raw.mot_pic_6);
-                break;
-            case Calendar.SATURDAY:
-                lo.setBackgroundResource(R.raw.mot_pic_7);
-                break;
-        }
-
 
         sb1.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
@@ -92,7 +64,7 @@ public class MainActivity11 extends AppCompatActivity {
             }
 
             private void seek(int progress) {
-                tv.setText(String.valueOf(sb1.getProgress()));
+                tv.setText(String.valueOf(100 - sb1.getProgress()));
 
             }
 
@@ -110,7 +82,7 @@ public class MainActivity11 extends AppCompatActivity {
 
                 saveBT.setVisibility(View.INVISIBLE);
                 Map<String, Object> motivationLevel = new HashMap<>();
-                motivationLevel.put("motivationLevel",String.valueOf(sb1.getProgress()));
+                motivationLevel.put("motivationLevel", String.valueOf(100 - sb1.getProgress()));
                 motivationLevel.put("dateTime", dateSTR);
                 motivationLevel.put("timeMS", timeMS);
 
@@ -135,6 +107,23 @@ public class MainActivity11 extends AppCompatActivity {
             }
         });
 
+        this.initBackground();
+    }
 
+    void initBackground() {
+        final int[] backgrounds = {
+                R.raw.mot_bg_1,
+                R.raw.mot_bg_2,
+                R.raw.mot_bg_3,
+                R.raw.mot_bg_4,
+                R.raw.mot_bg_5,
+                R.raw.mot_bg_6,
+                R.raw.mot_bg_7,
+        };
+        Calendar calendar = Calendar.getInstance();
+        final int day = calendar.get(Calendar.DAY_OF_WEEK) - 1;
+        VideoView bg = findViewById(R.id.videoBackground);
+        bg.setVideoPath("android.resource://" + getPackageName() + "/" + backgrounds[day]);
+        bg.start();
     }
 }

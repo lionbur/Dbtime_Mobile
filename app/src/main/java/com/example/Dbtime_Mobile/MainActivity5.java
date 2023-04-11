@@ -121,7 +121,7 @@ public class MainActivity5 extends AppCompatActivity {
                         (new Handler()).postDelayed(this::delay22, 5000);
                     }
                     private void delay22() {
-                        Intent i = new Intent(MainActivity5.this, MainActivity22.class);
+                        Intent i = new Intent(MainActivity5.this, MindfullIntroActivity.class);
                         startActivity(i);
                     }
                 });

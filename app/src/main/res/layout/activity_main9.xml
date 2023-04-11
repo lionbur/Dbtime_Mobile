@@ -5,56 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@raw/meditation_bg"
-    tools:context=".MainActivity9">
+    tools:context=".WebViewActivity">
 
-    <ImageButton
-        android:id="@+id/imageButton2"
-        android:layout_width="68dp"
-        android:layout_height="65dp"
-        android:layout_marginStart="154dp"
-        android:layout_marginEnd="22dp"
-        android:layout_marginBottom="104dp"
-        android:backgroundTint="#2E6CA4"
+    <WebView
+        android:id="@+id/webview_meditation"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton3"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@android:drawable/ic_media_play" />
-
-    <ImageButton
-        android:id="@+id/imageButton3"
-        android:layout_width="68dp"
-        android:layout_height="65dp"
-        android:layout_marginStart="22dp"
-        android:layout_marginEnd="123dp"
-        android:layout_marginBottom="104dp"
-        android:backgroundTint="#2E6CA4"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageButton2"
-        app:srcCompat="@android:drawable/ic_media_pause" />
-
-    <ImageView
-        android:id="@+id/imageView11"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="228dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@raw/balon" />
-
-    <TextView
-        android:id="@+id/hiperlink9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/hyperlink"
-        android:textColor="@color/white"
-        android:textSize="22dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.423"
-        app:layout_constraintStart_toStartOf="parent" />
-
-
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
