@@ -46,4 +46,12 @@
             android:textSize="24sp"
             android:visibility="visible" />
     </LinearLayout>
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentContainerView"
+        android:name="com.example.Dbtime_Mobile.MindfulCard"
+        android:layout_width="100dp"
+        android:layout_height="150dp"
+        tools:layout_editor_absoluteX="250dp"
+        tools:layout_editor_absoluteY="331dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
