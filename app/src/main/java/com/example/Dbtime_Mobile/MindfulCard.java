@@ -39,23 +39,38 @@ public class MindfulCard extends Fragment {
         if (getArguments() != null) {
             this.category = getArguments().getString(ARG_CATEGORY);
         }
+    }
 
-        View view = getView();
-
+    void initView(View view ) {
         frontface = view.findViewById(R.id.mindful_card_frontface);
         backface = view.findViewById(R.id.mindful_card_backface);
 
-        flipAnimator = ValueAnimator.ofFloat(0.5f, 0f);
-        flipAnimator.addUpdateListener(new FlipListener(this.frontface, this.backface));
+        flipAnimator = ValueAnimator.ofFloat(0.5f, 1f);
+        flipAnimator.addUpdateListener(new FlipListener(MindfulCard.this.frontface, MindfulCard.this.backface));
         flipAnimator.setDuration(2000);
         flipAnimator.start();
+
+        backface.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (flipAnimator.getAnimatedFraction() >= 1f) {
+                    flipAnimator = ValueAnimator.ofFloat(1f, 0f);
+                    flipAnimator.addUpdateListener(new FlipListener(MindfulCard.this.frontface, MindfulCard.this.backface));
+                    flipAnimator.setDuration(2000);
+                    flipAnimator.start();
+                }
+            }
+        });
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_mindful_card, container, false);
+        View view =  inflater.inflate(R.layout.fragment_mindful_card, container, false);
+        initView(view);
+
+        return view;
     }
 }
 
@@ -68,12 +83,12 @@ class FlipListener implements ValueAnimator.AnimatorUpdateListener {
     public FlipListener(final View front, final View back) {
         this.mFrontView = front;
         this.mBackView = back;
-        this.mBackView.setVisibility(View.GONE);
+//        this.mBackView.setVisibility(View.GONE);
     }
 
     @Override
     public void onAnimationUpdate(final ValueAnimator animation) {
-        final float value = animation.getAnimatedFraction();
+        final float value = (float)animation.getAnimatedValue();
         final float scaleValue = 0.625f + (1.5f * (value - 0.5f) * (value - 0.5f));
 
         if(value <= 0.5f){
