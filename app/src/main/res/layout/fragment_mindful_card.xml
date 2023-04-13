@@ -16,10 +16,11 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/textView36"
+            android:id="@+id/mindful_card_text"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/white"
+            android:padding="5dp"
             android:text="כאן יהיה כתוב משהו על קשיבות"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"

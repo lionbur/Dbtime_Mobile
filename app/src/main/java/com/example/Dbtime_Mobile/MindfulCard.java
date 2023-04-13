@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -41,6 +42,7 @@ public class MindfulCard extends Fragment {
         }
     }
 
+    Boolean isCardOpen = false;
     void initView(View view ) {
         frontface = view.findViewById(R.id.mindful_card_frontface);
         backface = view.findViewById(R.id.mindful_card_backface);
@@ -54,6 +56,7 @@ public class MindfulCard extends Fragment {
             @Override
             public void onClick(View view) {
                 if (flipAnimator.getAnimatedFraction() >= 1f) {
+                    isCardOpen = true;
                     flipAnimator = ValueAnimator.ofFloat(1f, 0f);
                     flipAnimator.addUpdateListener(new FlipListener(MindfulCard.this.frontface, MindfulCard.this.backface));
                     flipAnimator.setDuration(2000);
@@ -61,6 +64,16 @@ public class MindfulCard extends Fragment {
                 }
             }
         });
+    }
+
+    public void closeCard() {
+        if (isCardOpen && flipAnimator.getAnimatedFraction() >= 1f) {
+            isCardOpen = false;
+            flipAnimator = ValueAnimator.ofFloat(0f, 1f);
+            flipAnimator.addUpdateListener(new FlipListener(MindfulCard.this.frontface, MindfulCard.this.backface));
+            flipAnimator.setDuration(2000);
+            flipAnimator.start();
+        }
     }
 
     @Override
@@ -71,6 +84,12 @@ public class MindfulCard extends Fragment {
         initView(view);
 
         return view;
+    }
+
+    public void setText(String text) {
+        View view = getView();
+        TextView tv = (TextView)view.findViewById(R.id.mindful_card_text);
+        tv.setText(text);
     }
 }
 

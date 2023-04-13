@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mindful_cards_root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/mnubg"
@@ -47,10 +48,54 @@
     </LinearLayout>
 
     <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragmentContainerView"
+        android:id="@+id/mindful_card_1"
         android:name="com.example.Dbtime_Mobile.MindfulCard"
         android:layout_width="100dp"
         android:layout_height="150dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="20dp" />
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="100dp" />
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/mindful_card_2"
+        android:name="com.example.Dbtime_Mobile.MindfulCard"
+        android:layout_width="100dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="110dp"
+        android:layout_marginTop="100dp" />
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/mindful_card_3"
+        android:name="com.example.Dbtime_Mobile.MindfulCard"
+        android:layout_width="100dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="215dp"
+        android:layout_marginTop="100dp" />
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/mindful_card_4"
+        android:name="com.example.Dbtime_Mobile.MindfulCard"
+        android:layout_width="100dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="305dp" />
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/mindful_card_5"
+        android:name="com.example.Dbtime_Mobile.MindfulCard"
+        android:layout_width="100dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="110dp"
+        android:layout_marginTop="305dp" />
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/mindful_card_6"
+        android:name="com.example.Dbtime_Mobile.MindfulCard"
+        android:layout_width="100dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="215dp"
+        android:layout_marginTop="305dp" />
+    <Button
+        android:id="@+id/mindful_cards_shuffle"
+        android:text="ערבוב"
+        android:layout_marginTop="400dp"
+        android:layout_marginRight = "0dp"
+        android:layout_marginLeft="9dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+
 </RelativeLayout>
